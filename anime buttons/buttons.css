@@ -1,7 +1,22 @@
+@media (min-width: 850px){
+  .custom-btn{
+    font-size: 30px;
+  }
+  .custom-btnq{
+    font-size: 30px;
+  }
+}
+@media (min-width: 1200px){
+  .custom-btn{
+    font-size: 40px;
+  }
+  .custom-btnq{
+    font-size: 40px;
+  }
+}
 .custom-btn {
   width: 25%;
   height: 130px;
-  font-size: 50px;
   font-weight:1000;
   color: rgb(0, 0, 0);
   border-radius: 5px;
@@ -23,7 +38,6 @@
 .custom-btnq {
   width: 25%;
   height: 130px;
-  font-size: 50px;
   font-weight:1000;
   color: rgb(0, 0, 0);
   border-radius: 5px;
