@@ -1,0 +1,84 @@
+body{
+  background-color: rgb(238, 238, 238);
+}
+.head{
+    font-size: 50px;
+    font-weight:1000;
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 40px;
+    margin-left: 20px;
+}
+#navbar {
+    margin: 0;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    padding: 0;
+    list-style-type: none;
+    border: 2px solid #000000;
+    border-radius: 0px 0px;
+    width: auto;
+    text-align: center;
+    background-color: #000000;
+  }
+  #navbar a {
+    color: #fff;
+    padding: 5px 80px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    width: 100px;
+  }
+  #navbar a:hover {
+    border-radius: 20px 5px;
+    background-color: #000000;
+  }
+  #navbar li { display: inline; }
+.headofcatalog{
+  font-size: 50px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight:1000;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.firstline{
+  margin-left: 80px;
+  margin-bottom: 80px;
+}
+.secondline{
+  margin-left: 80px;
+  margin-bottom: 80px;
+}
+.blackline{
+  height: 15px;
+  background-color: #000000;
+  margin-bottom: 10px;
+}
+.aboutcomp{
+  position: relative;
+}
+.firstcolumn{
+  font-weight: 1000;
+  display: inline-block;
+  margin-left: 20px;
+}
+.aboutend{
+  margin-bottom: 10px;
+}
+.rightsq{
+  margin-bottom: 40px;
+}
+.secondcolumn{
+  display: inline-block;
+  font-weight: 1000;
+  margin-top: 30px;
+  margin-right: 20px;
+  text-align: right;
+  float: right;
+  font-size: large;
+}
+.dot{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
