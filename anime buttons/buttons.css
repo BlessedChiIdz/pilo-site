@@ -1,4 +1,12 @@
-@media (min-width: 850px){
+@media (min-width: 500px){
+  .custom-btn{
+    font-size: 20px;
+  }
+  .custom-btnq{
+    font-size: 20px;
+  }
+}
+@media (min-width: 900px){
   .custom-btn{
     font-size: 30px;
   }
@@ -16,7 +24,7 @@
 }
 .custom-btn {
   width: 25%;
-  height: 130px;
+  height: 120px;
   font-weight:1000;
   color: rgb(0, 0, 0);
   border-radius: 5px;
@@ -132,7 +140,7 @@ background-image: linear-gradient(315deg, #f0ecfc 0%, #ffffff 74%);
   vertical-align: top;
   background-color: #fcf1ff; 
 background-image: linear-gradient(315deg, #f0ecfc 0%, #ffffff 74%);
-  line-height: 65px;
+  line-height: 60px;
   padding: 0;
   border: none;
 }
