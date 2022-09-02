@@ -1,6 +1,14 @@
+body{
+    background-color: rgb(238, 238, 238);
+}
 .table{
-    margin-left: 10%;
-    margin-top:10% ;
+    position: absolute;
+    margin-top: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 900px;
+    left: 0;
+    right: 0;
     border: solid;
 }
 .firstcolumn{
@@ -19,6 +27,12 @@
     border-bottom: solid;
     vertical-align: top;
 }
+.nameofgoods{
+    margin-left: 7%;
+}
+.nameof_goods{
+    margin-left: 2%;
+}
 .firstline{
     border-bottom: solid;
 }
@@ -28,14 +42,14 @@
     margin-bottom: 1.5%;
 }
 .priceform3{
-    margin-left: 30%;
+    margin-left: 23%;
 }
 .priceforone{
 margin-left: 2%;
 }
 .table{
-    font-size: 20px;
-    font-weight:1000;
+    font-size: 18px;
+    font-weight:bold;
     font-family: 'Courier New', Courier, monospace;
 }
 .secondline div{
@@ -44,8 +58,35 @@ margin-left: 2%;
     margin-bottom: 1.5%;
 }
 .priceform3Brus{
-    margin-left: 23%;
+    margin-left: 21.5%;
 }
 .priceforoneBrus{
-    margin-left: 11%;
+    margin-left: 13%;
+}
+.thirdline div{
+    display: inline-block;
+}
+.thirdline{
+    margin-bottom: 1.5%;
+}
+.priceforoneBrus_4{
+    margin-left: 12%;
+}
+.fourline div{
+    display: inline-block;
+}
+.obrab{
+    width: 40%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 17px;
+    font-weight:bold;
+    text-align: center;
+}
+.fline div{
+    display: inline-block;
+}
+.total{
+    vertical-align: top;
+    margin-top: 77px;
 }
