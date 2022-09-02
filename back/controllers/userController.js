@@ -3,10 +3,10 @@ class UserController{
 
     }
     async login(req, res){
-        
     }
     async check(req, res){
-       
+       const query=req.query
+       res.json(query)
     }
 }
 

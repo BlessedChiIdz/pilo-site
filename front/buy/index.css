@@ -1,0 +1,51 @@
+.table{
+    margin-left: 10%;
+    margin-top:10% ;
+    border: solid;
+}
+.firstcolumn{
+    display: inline-block;
+    width: 15%;
+}
+.secondcolumn{
+    vertical-align: top;
+    display: inline-block;
+    width: 70%;
+}
+.minitable{
+    width: 100%;
+    border-left: solid;
+    border-right: solid;
+    border-bottom: solid;
+    vertical-align: top;
+}
+.firstline{
+    border-bottom: solid;
+}
+.firstline div{
+    margin-top: 1.5%;
+    display: inline-block;
+    margin-bottom: 1.5%;
+}
+.priceform3{
+    margin-left: 30%;
+}
+.priceforone{
+margin-left: 2%;
+}
+.table{
+    font-size: 20px;
+    font-weight:1000;
+    font-family: 'Courier New', Courier, monospace;
+}
+.secondline div{
+    margin-top: 1.5%;
+    display: inline-block;
+    margin-bottom: 1.5%;
+}
+.priceform3Brus{
+    margin-left: 23%;
+}
+.priceforoneBrus{
+    margin-left: 11%;
+}
