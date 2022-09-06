@@ -6,11 +6,16 @@ const PORT = process.env.PORT || 5000
 const cors = require('cors')
 const router = require('./routes/index')
 const app = express()
+const fileUpload = require('express-fileupload')
 const errorHandler = require('./middleware/ErrorHandleMiddleware')
 const ApiError=require('./error/ApiError');
+const path = require('path')
+
 
 app.use(cors())
 app.use(express.json())
+app.use(fileUpload({}))
+app.use(express.static(path.resolve(__dirname , 'static')))
 app.use('/api', router)
 
 
