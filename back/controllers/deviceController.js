@@ -9,9 +9,7 @@ class deviceController{
         const {img} = req.files
         let fileName = uuid.v4() + ".jpg" 
         img.mv(path.resolve(__dirname,'..','static',fileName))
-
         const device = await Device.create({name,price,typeId,img: fileName})
-
         return res.json(device)
         } catch (e) {
             next(ApiError.badRequest(e.message))
@@ -29,7 +27,12 @@ class deviceController{
         return res.json(devices)
     }
     async getone(req,res){
-        
+        const {id} = req.params
+        const device = await Device.findOne({
+            where: {id},
+
+        })
+        return res.json(device)
     }
 }
 
