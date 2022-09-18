@@ -19,7 +19,6 @@ app.use(express.static(path.resolve(__dirname , 'static')))
 app.use('/api', router)
 
 
-//
 app.use(function(err,req,res,next){
     if(err instanceof ApiError){
        return res.status(err.status).json({message:err.message})
