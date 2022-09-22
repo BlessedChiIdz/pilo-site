@@ -1,16 +1,16 @@
 import React from 'react';
-import {Routes, Route ,Redirect} from 'react-router-dom'
+import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
 import {authRoutes,publicRoutes} from "../routes";
 
 const AppRouter = () => {
     const isAuth = false
     return (
         <Routes>
-            {isAuth===true && authRoutes.map(({path,Component}) =>
-                <Route key={path} path={path} component={Component} exact/>
+            {isAuth===true && authRoutes.map(({path,element}) =>
+                <Route key={path} path={path} element={element} exact></Route>
             )}
-            {publicRoutes.map(({path,Component}) =>
-                <Route key={path} path={path} component={Component} exact/>
+            {publicRoutes.map(({path,element}) =>
+                <Route key={path} path={path} element={element} exact></Route>
             )}
         </Routes>
     );
