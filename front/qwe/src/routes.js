@@ -1,5 +1,5 @@
 import {ADMIN_ROUTE, BASKET_ROUTE, DEVICE_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE} from "./utils/consts";
-import Shop from "./pages/Shop";
+import Shop from "./pages/shop";
 import Auth from "./pages/auth";
 import DevicePage from "./pages/DevicePage";
 import Admin from "./pages/Admin";
@@ -8,29 +8,29 @@ import Basket from "./pages/Basket";
 export const authRoutes = [
     {
         path: ADMIN_ROUTE,
-        element: Admin
+        Component: Admin
     },
     {
         path: BASKET_ROUTE,
-        element : Basket
+        Component: Basket
     },
 ]
 
 export const publicRoutes = [
     {
         path: SHOP_ROUTE,
-        element : Shop
+        Component: Shop
     },
     {
         path: LOGIN_ROUTE,
-        element : Auth
+        Component: Auth
     },
     {
         path: REGISTRATION_ROUTE,
-        element : Auth
+        Component: Auth
     },
     {
         path: DEVICE_ROUTE + '/:id',
-        element : DevicePage
+        Component: DevicePage
     },
 ]
