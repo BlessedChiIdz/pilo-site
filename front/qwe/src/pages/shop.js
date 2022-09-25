@@ -1,11 +1,32 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
+import {Col, Container, Row} from "react-bootstrap";
+import TypeBar from "../components/TypeBar";
+import DeviceList from "../components/DeviceList";
+import {observer} from "mobx-react-lite";
+import {Context} from "../index";
+import {fetchDevices, fetchTypes} from "../http/DeviceAPI";
 
-const Shop = () => {
+const Shop = observer(() => {
+    const {device} = useContext(Context)
+
+    useEffect(()=>{
+    fetchTypes().then(data=>device.setTypes(data))
+    fetchDevices().then(data=>device.setDevices(data))
+    },[])
+
+
     return (
-        <div>
-            Shop
-        </div>
+        <Container>
+            <Row>
+                <Col md={3} className="mt-3">
+                    <TypeBar/>
+                </Col>
+                <Col md={9}>
+                    <DeviceList></DeviceList>
+                </Col>
+            </Row>
+        </Container>
     );
-};
+});
 
 export default Shop;
