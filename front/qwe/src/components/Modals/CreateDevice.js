@@ -9,7 +9,6 @@ const CreateDevice = observer(({show, onHide}) => {
     const [name, setName] = useState('')
     const [price, setPrice] = useState(0)
     const [file, setFile] = useState(null)
-    const [type, setType] = useState(null)
 
     useEffect(()=>{
         fetchTypes().then(data=>device.setTypes(data))
@@ -23,6 +22,7 @@ const CreateDevice = observer(({show, onHide}) => {
         formData.append('name',name)
         formData.append('price',`${price}`)
         formData.append('img',file)
+        formData.append('typeId', device.selectedType.id)
         createDevice(formData).then(data=>onHide())
     }
     return (
@@ -73,7 +73,7 @@ const CreateDevice = observer(({show, onHide}) => {
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="outline-danger" onClick={onHide}>Закрыть</Button>
-                <Button variant="outline-success" onClick={onHide}>Добавить</Button>
+                <Button variant="outline-success" onClick={addDevice}>Добавить</Button>
             </Modal.Footer>
         </Modal>
     );
