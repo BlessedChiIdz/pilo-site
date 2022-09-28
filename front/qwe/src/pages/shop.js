@@ -11,9 +11,13 @@ const Shop = observer(() => {
 
     useEffect(()=>{
     fetchTypes().then(data=>device.setTypes(data))
-    fetchDevices().then(data=>device.setDevices(data))
-    },[])
 
+    },[])
+useEffect(()=>{
+    fetchDevices(device.selectedType.id).then(data=> {
+        device.setDevices(data)
+    })
+},[device.selectedType])
 
     return (
         <Container>

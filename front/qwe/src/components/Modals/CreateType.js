@@ -1,10 +1,9 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Button, Form, Modal} from "react-bootstrap";
-import {createType} from "../../http/DeviceAPI";
+import {createType, fetchDevices, fetchTypes} from "../../http/DeviceAPI";
 
 const CreateType = ({show, onHide}) => {
     const [value, setValue] = useState('')
-
     const addType = () => {
         createType({name:value}).then(data => {
             setValue('')
