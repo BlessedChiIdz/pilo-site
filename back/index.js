@@ -11,14 +11,33 @@ const errorHandler = require('./middleware/ErrorHandleMiddleware')
 const ApiError=require('./error/ApiError');
 const path = require('path')
 const cookieParser = require('cookie-parser')
+const cockie_exp = 60 * 60 * 1000 * 24;
 
-app.use(cors())
+
+    app.use(cors())
 app.use(express.json())
 app.use(fileUpload({}))
 app.use(express.static(path.resolve(__dirname , 'static')))
 app.use(cookieParser(process.env.SECRET_KEY))
 app.use('/api', router)
 
+
+
+app.use(function (req, res, next) {
+    // check if client sent cookie
+    var cookie = req.cookies.idForBusket;
+    if (cookie === undefined) {
+        // no: set a new cookie
+        var randomNumber=Math.random().toString();
+        randomNumber=randomNumber.substring(2,randomNumber.length);
+        res.cookie('idForBusket',randomNumber, { maxAge: cockie_exp, httpOnly: false });
+        console.log('cookie created successfully');
+    } else {
+        // yes, cookie was already present
+        console.log('cookie exists', cookie);
+    }
+    next(); // <-- important!
+});
 
 app.use(function(err,req,res,next){
     if(err instanceof ApiError){
