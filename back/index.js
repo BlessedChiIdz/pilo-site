@@ -10,12 +10,13 @@ const fileUpload = require('express-fileupload')
 const errorHandler = require('./middleware/ErrorHandleMiddleware')
 const ApiError=require('./error/ApiError');
 const path = require('path')
-
+const cookieParser = require('cookie-parser')
 
 app.use(cors())
 app.use(express.json())
 app.use(fileUpload({}))
 app.use(express.static(path.resolve(__dirname , 'static')))
+app.use(cookieParser(process.env.SECRET_KEY))
 app.use('/api', router)
 
 
