@@ -1,4 +1,5 @@
 require('dotenv').config()
+const{Basket} = require('./models/models')
 const express = require('express')
 const sequelize = require('./db')
 const models = require('../back/models/models')
@@ -14,23 +15,23 @@ const cookieParser = require('cookie-parser')
 const cockie_exp = 60 * 60 * 1000 * 24;
 
 
-    app.use(cors())
+app.use(cors())
 app.use(express.json())
 app.use(fileUpload({}))
 app.use(express.static(path.resolve(__dirname , 'static')))
-app.use(cookieParser(process.env.SECRET_KEY))
+app.use(cookieParser())
 app.use('/api', router)
-
 
 
 app.use(function (req, res, next) {
     // check if client sent cookie
-    var cookie = req.cookies.idForBusket;
+    var cookie = req.cookies.cookieName;
     if (cookie === undefined) {
         // no: set a new cookie
         var randomNumber=Math.random().toString();
         randomNumber=randomNumber.substring(2,randomNumber.length);
-        res.cookie('idForBusket',randomNumber, { maxAge: cockie_exp, httpOnly: false });
+        res.cookie('cookieName',randomNumber, { maxAge: 900000, httpOnly: true });
+        const basket = Basket.create()
         console.log('cookie created successfully');
     } else {
         // yes, cookie was already present
@@ -38,6 +39,10 @@ app.use(function (req, res, next) {
     }
     next(); // <-- important!
 });
+
+// let static middleware do its job
+app.use(express.static(__dirname + '/public'));
+
 
 app.use(function(err,req,res,next){
     if(err instanceof ApiError){
