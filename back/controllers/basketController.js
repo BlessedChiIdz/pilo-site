@@ -1,9 +1,15 @@
 const{Basket} = require('../models/models')
-const ApiError = require('../error/ApiError')
-
+cookieParser = require('cookie-parser');
 class BasketController{
-    async create(req, res,next){
-
+    async set(req, res) {
+        const cookie = req.cookies.cookieName;
+        const basket = Basket.create({id:cookie})
+        return res.json(basket)
+    }
+    async get(req,res){
+        const cookie = req.cookies.cookieName;
+        const basket = await Basket.findAll({where: {id:cookie}})
+        return res.json(basket)
     }
 }
 

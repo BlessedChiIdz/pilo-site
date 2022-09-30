@@ -24,24 +24,19 @@ app.use('/api', router)
 
 
 app.use(function (req, res, next) {
-    // check if client sent cookie
-    var cookie = req.cookies.cookieName;
-    if (cookie === undefined) {
-        // no: set a new cookie
-        var randomNumber=Math.random().toString();
-        randomNumber=randomNumber.substring(2,randomNumber.length);
-        res.cookie('cookieName',randomNumber, { maxAge: 900000, httpOnly: true });
-        const basket = Basket.create()
-        console.log('cookie created successfully');
-    } else {
-        // yes, cookie was already present
-        console.log('cookie exists', cookie);
-    }
-    next(); // <-- important!
+            let m = {};
+            let a = [];
+            const range = 2000000000; // максимальное значение (1..1000000 включительно)
+            let count = 1;      // кол-во требуемых чисел
+            for (let i = 0; i < count; ++i) {
+                let r = Math.floor(Math.random() * (range - i));
+                a.push(((r in m) ? m[r] : r) + 1);
+                let l = range - i - 1;
+                m[r] = (l in m) ? m[l] : l;
+            }
+            res.cookie('cookieName', a[0], {maxAge: 1000 * 60 * 60 * 24 * 360, httpOnly: true});
+            next();
 });
-
-// let static middleware do its job
-app.use(express.static(__dirname + '/public'));
 
 
 app.use(function(err,req,res,next){
