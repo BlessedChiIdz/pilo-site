@@ -1,5 +1,4 @@
 require('dotenv').config()
-const{Basket} = require('./models/models')
 const express = require('express')
 const sequelize = require('./db')
 const models = require('../back/models/models')
@@ -12,7 +11,6 @@ const errorHandler = require('./middleware/ErrorHandleMiddleware')
 const ApiError=require('./error/ApiError');
 const path = require('path')
 const cookieParser = require('cookie-parser')
-const cockie_exp = 60 * 60 * 1000 * 24;
 
 
 app.use(cors())
@@ -34,7 +32,7 @@ app.use(function (req, res, next) {
                 let l = range - i - 1;
                 m[r] = (l in m) ? m[l] : l;
             }
-            res.cookie('cookieName', a[0], {maxAge: 1000 * 60 * 60 * 24 * 360, httpOnly: true});
+            res.cookie('cookieName', a[0], {maxAge: 1000 * 60 * 60 * 24 * 360, httpOnly: false});
             next();
 });
 

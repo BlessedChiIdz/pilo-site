@@ -9,7 +9,8 @@ const User =sequelize.define('user',{
 })
 
 const Basket = sequelize.define('basket',{
-    id: {type: DataTypes.BIGINT, primaryKey:true, autoIncrement:false},
+    id: {type: DataTypes.BIGINT, primaryKey:true, autoIncrement:true},
+    id_forCookie: {type: DataTypes.INTEGER,allowNull: false},
 })
 const BasketDevice = sequelize.define('basket_device',{
     id: {type: DataTypes.INTEGER, primaryKey:true, autoIncrement:true},
@@ -25,8 +26,6 @@ const Type = sequelize.define('type', {
     id: {type: DataTypes.INTEGER,primaryKey:true, autoIncrement:true},
     name: {type: DataTypes.STRING,unique: true,allowNull:false},
 })
-User.hasOne(Basket)
-Basket.belongsTo(User)
 
 Basket.hasMany(BasketDevice)
 BasketDevice.belongsTo(Basket)

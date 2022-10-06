@@ -3,7 +3,7 @@ const router = new Router()
 const basketController = require('../controllers/basketController')
 
 
-router.get('/',basketController.set)
-router.get('/qwe',basketController.get)
+router.post('/create',basketController.create)
+router.get('/get',basketController.get)
 
 module.exports = router
