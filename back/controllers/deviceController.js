@@ -30,7 +30,6 @@ class deviceController{
         const {id} = req.params
         const device = await Device.findOne({
             where: {id},
-
         })
         return res.json(device)
     }

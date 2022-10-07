@@ -22,6 +22,11 @@ const Device = sequelize.define('device',{
     price: {type: DataTypes.INTEGER,allowNull: false},
     img: {type: DataTypes.STRING,allowNull:false},
 })
+const deviceList = sequelize.define('deviceList',{
+    id: {type: DataTypes.INTEGER, primaryKey:true, autoIncrement:true},
+    name: {type: DataTypes.STRING, unique:true, allowNull:false},
+    price: {type: DataTypes.INTEGER,allowNull: false},
+})
 const Type = sequelize.define('type', {
     id: {type: DataTypes.INTEGER,primaryKey:true, autoIncrement:true},
     name: {type: DataTypes.STRING,unique: true,allowNull:false},
@@ -36,6 +41,9 @@ Device.belongsTo(Type)
 Device.hasMany(BasketDevice)
 BasketDevice.belongsTo(Device)
 
+Device.hasMany(deviceList)
+deviceList.belongsTo(Device)
+
 module.exports = {
-    User,Basket,BasketDevice,Device,Type,
+    User,Basket,BasketDevice,Device,Type,deviceList,
 }
