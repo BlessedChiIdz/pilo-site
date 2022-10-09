@@ -8,10 +8,8 @@ import {fetchDevices, fetchTypes} from "../http/DeviceAPI";
 
 const Shop = observer(() => {
     const {device} = useContext(Context)
-
     useEffect(()=>{
     fetchTypes().then(data=>device.setTypes(data))
-
     },[])
 useEffect(()=>{
     fetchDevices(device.selectedType.id).then(data=> {

@@ -4,7 +4,9 @@ export default class DeviceStore{
     constructor() {
         this._types = []
         this._device=[]
+        this._deviceLists = []
         this._selectedType = {}
+        this._selectedDevice = {}
         makeAutoObservable(this)
     }
     setTypes(types){
@@ -16,6 +18,12 @@ export default class DeviceStore{
     setSelectedType(type){
         this._selectedType = type
     }
+    setSelectedDevice(device){
+        this._selectedDevice = device
+    }
+    setDeviceList(deviceList){
+        this._deviceLists=deviceList
+    }
     get types(){
         return this._types
     }
@@ -24,5 +32,11 @@ export default class DeviceStore{
     }
     get selectedType(){
         return this._selectedType
+    }
+    get selectedDevice(){
+        return this._selectedDevice
+    }
+    get DeviceList(){
+        return this._deviceLists
     }
 }

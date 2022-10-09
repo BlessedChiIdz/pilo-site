@@ -1,29 +1,31 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {Button, Dropdown, Form, Modal} from "react-bootstrap";
 import {Context} from "../../index";
-import {createDevice, fetchDeviceList, fetchDevices, fetchTypes} from "../../http/DeviceAPI";
+import {CreateDeviceList, fetchDevices, fetchDeviceList, fetchOneDevices, fetchTypes} from "../../http/DeviceAPI";
 import {observer} from "mobx-react-lite";
+import {useParams} from "react-router-dom";
 
-const CreateDevice = observer(({show, onHide}) => {
+const createDeviceList = observer(({show, onHide}) => {
     const {device} = useContext(Context)
     const [name, setName] = useState('')
     const [price, setPrice] = useState(0)
-    const [file, setFile] = useState(null)
-
+    //const {id} = useParams()
+    // useEffect(()=>{
+    //     fetchOneDevices(id).then(data=>device.setSelectedDevice(data))        Для DeviceList
+    // })
     useEffect(()=>{
         fetchTypes().then(data=>device.setTypes(data))
     },[])
+    useEffect(()=>{
+        fetchDevices(device.selectedType.id).then(data=>device.setDevices(data))
+    },[device.selectedType])
 
-    const selectFile= e =>{
-        setFile(e.target.files[0])
-    }
-    const addDevice=()=>{
+    const addDeviceList=()=>{
         const formData = new FormData()
         formData.append('name',name)
         formData.append('price',`${price}`)
-        formData.append('img',file)
-        formData.append('typeId', device.selectedType.id)
-        createDevice(formData).then(data=>onHide())
+        formData.append('deviceId', device.selectedDevice.id)
+        CreateDeviceList(formData).then(data=>onHide())
     }
     return (
         <Modal
@@ -34,7 +36,7 @@ const CreateDevice = observer(({show, onHide}) => {
         >
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    Добавить устройство
+                    Добавить поддевайс
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
@@ -45,9 +47,21 @@ const CreateDevice = observer(({show, onHide}) => {
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
                             {device.types.map(type=>
-                            <Dropdown.Item onClick={()=>device.setSelectedType(type)}
-                                           key={type.id}>{type.name}
-                            </Dropdown.Item>
+                                <Dropdown.Item onClick={()=>device.setSelectedType(type)}
+                                               key={type.id}>{type.name}
+                                </Dropdown.Item>
+                            )}
+                        </Dropdown.Menu>
+                    </Dropdown>
+                    <Dropdown>
+                        <Dropdown.Toggle>
+                            {device.selectedDevice.name || "выберете девайс"}
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                            {device.devices.map(qwe=>
+                                <Dropdown.Item onClick={()=>device.setSelectedDevice(qwe)}
+                                               key={qwe.id}>{qwe.name}
+                                </Dropdown.Item>
                             )}
                         </Dropdown.Menu>
                     </Dropdown>
@@ -63,20 +77,16 @@ const CreateDevice = observer(({show, onHide}) => {
                         className="mt-3"
                         placeholder="Введите стоимость устройства"
                         type="number"
-                    /><Form.Control
-                    className="mt-3"
-                    type="file"
-                    onChange={selectFile}
-                />
+                    />
                     <hr/>
                 </Form>
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="outline-danger" onClick={onHide}>Закрыть</Button>
-                <Button variant="outline-success" onClick={addDevice}>Добавить</Button>
+                <Button variant="outline-success" onClick={addDeviceList}>Добавить</Button>
             </Modal.Footer>
         </Modal>
     );
 });
 
-export default CreateDevice;
+export default createDeviceList;

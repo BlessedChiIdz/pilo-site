@@ -38,8 +38,8 @@ BasketDevice.belongsTo(Basket)
 Type.hasMany(Device)
 Device.belongsTo(Type)
 
-Device.hasMany(BasketDevice)
-BasketDevice.belongsTo(Device)
+deviceList.hasMany(BasketDevice)
+BasketDevice.belongsTo(deviceList)
 
 Device.hasMany(deviceList)
 deviceList.belongsTo(Device)

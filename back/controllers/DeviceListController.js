@@ -1,6 +1,6 @@
 const{deviceList} = require('../models/models')
 const ApiError = require('../error/ApiError')
-class deviceController{
+class deviceListController{
     async create(req, res,next){
         try{
             let {name, price, deviceId} = req.body
@@ -25,4 +25,4 @@ class deviceController{
     }
 }
 
-module.exports = new deviceController()
+module.exports = new deviceListController()

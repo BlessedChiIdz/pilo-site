@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Card, Col, Container, Image, Row} from "react-bootstrap";
 import {useParams} from "react-router-dom";
-import {fetchOneDevices} from "../http/DeviceAPI";
+import {fetchDeviceList, fetchOneDevices} from "../http/DeviceAPI";
 
 const DevicePage = () => {
     const [device, setDeivce] = useState({info:[]})
@@ -30,6 +30,11 @@ const DevicePage = () => {
                         <Button variant={"outline-dark"}>Добавить в корзину</Button>
                     </Card>
                 </Col>
+            </Row>
+            <Row>
+                <div>
+
+                </div>
             </Row>
         </Container>
     );
