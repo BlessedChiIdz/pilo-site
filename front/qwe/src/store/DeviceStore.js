@@ -4,7 +4,10 @@ export default class DeviceStore{
     constructor() {
         this._types = []
         this._device=[]
-        this._deviceLists = []
+        this._deviceLists = [
+            {id:1,name:"test",price: 1000,deviceId:9},
+            {id:2,name:"test_2",price: 1000,deviceId:9},
+        ]
         this._selectedType = {}
         this._selectedDevice = {}
         makeAutoObservable(this)

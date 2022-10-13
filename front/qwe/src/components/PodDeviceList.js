@@ -1,15 +1,16 @@
 import React, {useContext} from 'react';
 import {observer} from "mobx-react-lite";
 import {Context} from "../index";
-import podDeviceItem from "./podDeviceItem";
+import PodDeviceItem from "./PodDeviceItem";
+import {Row} from "react-bootstrap";
 const PodDeviceList = observer(() => {
     const {device} = useContext(Context)
     return (
-        <div>
+        <Row>
             {device.DeviceList.map(device=>
-                <podDeviceItem key = {device.id} device={device}/>
+                <PodDeviceItem key = {device.id} device={device}/>
             )}
-        </div>
+        </Row>
     );
 });
 
