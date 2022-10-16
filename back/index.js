@@ -20,21 +20,28 @@ app.use(express.static(path.resolve(__dirname , 'static')))
 app.use(cookieParser())
 app.use('/api', router)
 
+    app.use(function (req, res, next) {
+        if(req.cookies.cookieName == undefined){
+                let m = {};
+                let a = [];
+                const range = 2000000000; // максимальное значение (1..1000000 включительно)
+                let count = 1;      // кол-во требуемых чисел
+                for (let i = 0; i < count; ++i) {
+                    let r = Math.floor(Math.random() * (range - i));
+                    a.push(((r in m) ? m[r] : r) + 1);
+                    let l = range - i - 1;
+                    m[r] = (l in m) ? m[l] : l;
+                }
+                res.cookie('cookieName', a[0], {maxAge: 1000 * 60 * 60 * 24 * 360, httpOnly: false});
+                next();
+        }
+        else{
+            console.log(req.cookies.cookieName)
+            console.log("yes cookie")
+            next()
+        }
+    });
 
-app.use(function (req, res, next) {
-            let m = {};
-            let a = [];
-            const range = 2000000000; // максимальное значение (1..1000000 включительно)
-            let count = 1;      // кол-во требуемых чисел
-            for (let i = 0; i < count; ++i) {
-                let r = Math.floor(Math.random() * (range - i));
-                a.push(((r in m) ? m[r] : r) + 1);
-                let l = range - i - 1;
-                m[r] = (l in m) ? m[l] : l;
-            }
-            res.cookie('cookieName', a[0], {maxAge: 1000 * 60 * 60 * 24 * 360, httpOnly: false});
-            next();
-});
 
 
 app.use(function(err,req,res,next){

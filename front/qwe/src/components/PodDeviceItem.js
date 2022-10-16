@@ -5,7 +5,7 @@ const PodDeviceItem = ({device}) => {
 
     return (
             <Col sm={12}>
-                <Row className="mt-3 border border-2 border-dark position-relative">
+                <Row className="mt-3 border-bottom border-2 border-dark position-relative">
                 <Col sm={6}>
                     <div>
                         {device.name}
@@ -16,8 +16,8 @@ const PodDeviceItem = ({device}) => {
                         {device.price}P
                     </div>
                 </Col>
-                    <Col sm={3}>
-                        <Button variant={"outline-dark"} >Добавить в корзину</Button>
+                    <Col sm={3} className="text-center">
+                        <Button variant={"outline-dark"} className="mb-2">Добавить в корзину</Button>
                     </Col>
                 </Row>
             </Col>

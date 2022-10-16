@@ -3,14 +3,14 @@ const ApiError = require("../error/ApiError");
 
 class basketDeviceController{
         async add(req,res){
-        const {basketId,deviceId} = req.body
-            const  basket_device = BasketDevice.create({basketId,deviceId})
-            return res.json(basket_device)
+        const {basketId,deviceListId} = req.body
+            const  basketDevice = await BasketDevice.create({basketId,deviceListId})
+            return res.json(basketDevice)
         }
-        async findAll(req,res){
+        async getAll(req,res){
             const {basketId} = req.query
-            const basket_device=BasketDevice.findAll({
-                where:{basketId,deviceId}
+            const basket_device = await BasketDevice.findAll({
+                where:{basketId:basketId}
             })
             return res.json(basket_device)
         }
@@ -19,4 +19,4 @@ class basketDeviceController{
         }
 }
 
-export default BasketDeviceController;
+module.exports = new basketDeviceController()
