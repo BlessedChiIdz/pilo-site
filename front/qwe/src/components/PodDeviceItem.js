@@ -1,7 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Button, Col, Row} from "react-bootstrap";
-
+import {login, registration} from "../http/userAPI";
+import {SHOP_ROUTE} from "../utils/consts";
+import Count from "./Modals/Count";
 const PodDeviceItem = ({device}) => {
+    const [MenuVisible, setMenuVisible] = useState(false)
+    const click = async () =>{
+        try {
+
+        } catch (e){
+
+        }
+    }
+
 
     return (
             <Col sm={12}>
@@ -17,8 +28,9 @@ const PodDeviceItem = ({device}) => {
                     </div>
                 </Col>
                     <Col sm={3} className="text-center">
-                        <Button variant={"outline-dark"} className="mb-2">Добавить в корзину</Button>
+                        <Button variant={"outline-dark"} className="mb-2"  onClick={()=>setMenuVisible(true)}>Добавить в корзину</Button>
                     </Col>
+                    <Count show={MenuVisible} onHide={()=>setMenuVisible(false)} id={device.id}/>
                 </Row>
             </Col>
     );

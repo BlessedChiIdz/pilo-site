@@ -6,17 +6,18 @@ import {observer} from "mobx-react-lite";
 import {Context} from "./index";
 import {check} from "./http/userAPI";
 import {Spinner} from "react-bootstrap";
+import {createBasket} from "./http/DeviceAPI";
+import axios from "axios";
 const App = observer(() =>{
     const{user} = useContext(Context)
     const [loading, setLoading] = useState(true)
-
+    const {device} = useContext(Context)
     useEffect(()=>{
         check().then(data=>{
             user.setUser(true)
             user.setIsAuth(true)
         }).finally(()=>setLoading(false))
     },[])
-
     if(loading){
         return <Spinner animation={"grow"}/>
     }

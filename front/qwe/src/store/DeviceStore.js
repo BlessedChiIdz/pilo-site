@@ -7,6 +7,7 @@ export default class DeviceStore{
         this._deviceLists = []
         this._selectedType = {}
         this._selectedDevice = {}
+        this._deviceBasket = {}
         makeAutoObservable(this)
     }
     setTypes(types){
@@ -24,6 +25,9 @@ export default class DeviceStore{
     setDeviceList(deviceList){
         this._deviceLists=deviceList
     }
+    setDeviceBasket(DeviceBasket){
+        this._deviceBasket = DeviceBasket
+    }
     get types(){
         return this._types
     }
@@ -39,4 +43,8 @@ export default class DeviceStore{
     get DeviceList(){
         return this._deviceLists
     }
+    get DeviceBasket(){
+        return this._deviceBasket
+    }
+
 }

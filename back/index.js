@@ -11,7 +11,8 @@ const errorHandler = require('./middleware/ErrorHandleMiddleware')
 const ApiError=require('./error/ApiError');
 const path = require('path')
 const cookieParser = require('cookie-parser')
-
+const {Basket} = require("./models/models");
+const timeout = require('connect-timeout')
 
 app.use(cors())
 app.use(express.json())
@@ -20,7 +21,7 @@ app.use(express.static(path.resolve(__dirname , 'static')))
 app.use(cookieParser())
 app.use('/api', router)
 
-    app.use(function (req, res, next) {
+    app.use(async function (req, res, next) {
         if(req.cookies.cookieName == undefined){
                 let m = {};
                 let a = [];
@@ -32,7 +33,17 @@ app.use('/api', router)
                     let l = range - i - 1;
                     m[r] = (l in m) ? m[l] : l;
                 }
-                res.cookie('cookieName', a[0], {maxAge: 1000 * 60 * 60 * 24 * 360, httpOnly: false});
+                await res.cookie('cookieName', a[0], {maxAge: 1000 * 60 * 60 * 24 * 360, httpOnly: false});
+                const {basket} = await Basket.findAll({
+                    where:{id_forCookie:a[0]}
+                })
+                if(basket==undefined){
+                    Basket.create({id_forCookie:a[0]})
+                    console.log(basket)
+               }
+                else{
+                    console.log(basket)
+                }
                 next();
         }
         else{
@@ -41,6 +52,20 @@ app.use('/api', router)
             next()
         }
     });
+//    app.use(async function (req,res,next){
+//         const cookie = await req.cookies.cookieName
+//         const {basket} = await Basket.findAll({
+//             where:{id_forCookie:cookie}
+//         })
+//         if(basket==undefined){
+//             await Basket.create({id_forCookie:cookie})
+//             console.log(basket)
+//         }
+//         else{
+//             console.log(basket)
+//         }
+//         next();
+// });
 
 
 

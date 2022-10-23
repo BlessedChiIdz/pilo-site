@@ -4,6 +4,8 @@ import {useParams} from "react-router-dom";
 import {fetchDeviceList, fetchDevices, fetchOneDevices} from "../http/DeviceAPI";
 import PodDeviceList from "../components/PodDeviceList"
 import {Context} from "../index";
+import {login, registration} from "../http/userAPI";
+import {SHOP_ROUTE} from "../utils/consts";
 const DevicePage = () => {
     const [deviceInfo, setDeviceInfo] = useState({info: []})
     const {id} = useParams()
@@ -13,6 +15,7 @@ const DevicePage = () => {
         fetchDeviceList(id).then(data=>device.setDeviceList(data))
         fetchOneDevices(id).then(data=>setDeviceInfo(data))
     },[])
+
 
         return (
         <Container className="mt-3">

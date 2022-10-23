@@ -32,3 +32,15 @@ export const fetchDeviceList = async (deviceId) =>{
     }})
     return data
 }
+export const mainApp = async () =>{
+    const {data} = await $host.post('api/')
+    return data
+}
+export const addBasketDevice = async (Count) =>{
+    const {data} = await $host.post('api/basketDevice/add', Count)
+    return data
+}
+export const CheckBasketId = async () =>{
+    const {data} = await $host.get('api/basket/check')
+    return data
+}

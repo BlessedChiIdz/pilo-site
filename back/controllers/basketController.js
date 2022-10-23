@@ -16,6 +16,10 @@ class BasketController{
         const basket = await Basket.findAll({where: {id_forCookie:cookie}})
         return res.json(basket)
     }
+    async check(req,res){
+        const cookie = req.cookies.cookieName;
+        return res.json(Number(cookie))
+    }
 }
 
 module.exports = new BasketController()

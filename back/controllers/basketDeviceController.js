@@ -3,8 +3,8 @@ const ApiError = require("../error/ApiError");
 
 class basketDeviceController{
         async add(req,res){
-        const {basketId,deviceListId} = req.body
-            const  basketDevice = await BasketDevice.create({basketId,deviceListId})
+        const {Count,basketId,deviceListId} = req.body
+            const  basketDevice = await BasketDevice.create({Count:Count,basketId,deviceListId})
             return res.json(basketDevice)
         }
         async getAll(req,res){
@@ -15,7 +15,11 @@ class basketDeviceController{
             return res.json(basket_device)
         }
         async delete(req,res){
-
+            const {id} = req.query
+            const qwe = await BasketDevice.destroy({
+                where : {id}
+            })
+            return res.json(qwe)
         }
 }
 

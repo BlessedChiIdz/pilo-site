@@ -4,5 +4,6 @@ const basketDeviceController = require('../controllers/basketDeviceController')
 
 router.post('/add',basketDeviceController.add)
 router.get('/get',basketDeviceController.getAll)
+router.post('/delete',basketDeviceController.delete)
 
 module.exports = router
