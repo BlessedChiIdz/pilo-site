@@ -54,11 +54,11 @@ app.use('/api', router)
     });
 //    app.use(async function (req,res,next){
 //         const cookie = await req.cookies.cookieName
-//         const {basket} = await Basket.findAll({
+//         const {basket} = await BasketStore.findAll({
 //             where:{id_forCookie:cookie}
 //         })
 //         if(basket==undefined){
-//             await Basket.create({id_forCookie:cookie})
+//             await BasketStore.create({id_forCookie:cookie})
 //             console.log(basket)
 //         }
 //         else{

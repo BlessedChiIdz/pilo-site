@@ -16,7 +16,6 @@ useEffect(()=>{
         device.setDevices(data)
     })
 },[device.selectedType])
-
     return (
         <Container>
             <Row>

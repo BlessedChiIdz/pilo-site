@@ -11,7 +11,8 @@ import axios from "axios";
 const App = observer(() =>{
     const{user} = useContext(Context)
     const [loading, setLoading] = useState(true)
-    const {device} = useContext(Context)
+    //const {device} = useContext(Context)
+
     useEffect(()=>{
         check().then(data=>{
             user.setUser(true)
