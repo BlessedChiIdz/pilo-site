@@ -1,4 +1,4 @@
-const{BasketDevice} = require('../models/models')
+const{BasketDevice, Basket} = require('../models/models')
 const ApiError = require("../error/ApiError");
 
 class basketDeviceController{
@@ -21,6 +21,19 @@ class basketDeviceController{
             })
             return res.json(qwe)
         }
+        async ExpGet(req,res){
+            let {id_forCookie} = req.query;
+            const basketzxc = await Basket.findAll(
+                {
+                    where: {id_forCookie},
+                },
+            )
+            const basket_device = await BasketDevice.findAll({
+                where:{basketId:basketzxc[0].id}
+            })
+            return res.json(basket_device)
+        }
+
 }
 
 module.exports = new basketDeviceController()

@@ -2,12 +2,14 @@ import {makeAutoObservable} from "mobx";
 
 export default class DeviceStore{
     constructor() {
+        this._count = 1
+        this._basketPodDevices = {}
         this._types = []
         this._device=[]
         this._deviceLists = []
+        this._basketDevices = []
         this._selectedType = {}
         this._selectedDevice = {}
-        this._deviceBasket = {}
         makeAutoObservable(this)
     }
     setTypes(types){
@@ -25,8 +27,17 @@ export default class DeviceStore{
     setDeviceList(deviceList){
         this._deviceLists=deviceList
     }
-    setDeviceBasket(DeviceBasket){
-        this._deviceBasket = DeviceBasket
+    setBasketDevices(basketDevice){
+        this._basketDevices = basketDevice
+    }
+    setCount(){
+        this._count = this._count + 1
+    }
+    setBasketPodDevices(BasketPodDevices){
+        this._basketPodDevices = BasketPodDevices
+    }
+    get BasketPodDevices(){
+        return this._basketPodDevices
     }
     get types(){
         return this._types
@@ -43,8 +54,11 @@ export default class DeviceStore{
     get DeviceList(){
         return this._deviceLists
     }
-    get DeviceBasket(){
-        return this._deviceBasket
+    get BasketDevices(){
+        return this._basketDevices
+    }
+    get Count(){
+        return this._count
     }
 
 }

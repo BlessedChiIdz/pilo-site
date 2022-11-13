@@ -6,6 +6,7 @@ import PodDeviceList from "../components/PodDeviceList"
 import {Context} from "../index";
 import {login, registration} from "../http/userAPI";
 import {SHOP_ROUTE} from "../utils/consts";
+import {toJS} from "mobx";
 const DevicePage = () => {
     const [deviceInfo, setDeviceInfo] = useState({info: []})
     const {id} = useParams()
@@ -16,7 +17,7 @@ const DevicePage = () => {
         fetchOneDevices(id).then(data=>setDeviceInfo(data))
     },[])
 
-
+console.log(toJS(device.DeviceList))
         return (
         <Container className="mt-3">
             <Row>

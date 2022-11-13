@@ -2,7 +2,7 @@ import {makeAutoObservable} from "mobx";
 
 export default class BasketStore {
     constructor() {
-        this._Baskets = {}
+        this._Baskets = []
         makeAutoObservable(this)
     }
     setBaskets (props){
@@ -11,4 +11,5 @@ export default class BasketStore {
     get Baskets(){
         return this._Baskets
     }
+
 }

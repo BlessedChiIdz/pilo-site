@@ -18,10 +18,6 @@ export const authRoutes = [
         path: ADMIN_ROUTE,
         element: <Admin/>
     },
-    {
-        path: BASKET_ROUTE,
-        element: <Basket/>
-    },
 ]
 
 export const publicRoutes = [
@@ -44,5 +40,9 @@ export const publicRoutes = [
     {
         path: DEVICE_ROUTE + '/:id',
         element: <DevicePage/>
+    },
+    {
+        path: BASKET_ROUTE,
+        element: <Basket/>
     },
 ]

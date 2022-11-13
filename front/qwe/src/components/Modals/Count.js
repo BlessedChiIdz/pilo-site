@@ -4,13 +4,14 @@ import {addBasketDevice, CheckBasketId, fetchTypes, getBasketId} from "../../htt
 import {Context} from "../../index";
 import data from "bootstrap/js/src/dom/data";
 import {observer} from "mobx-react-lite";
+import {useCookies} from "react-cookie";
 
  const Count = observer(({show, onHide, id}) => {
-    const {basket} = useContext(Context)
-    const [value, setValue] = useState(2)
-    const [BasketId ,setBasketId] = useState(0)
-    let cookie_req = document.cookie.split("=")
-    let cookies = cookie_req[1]
+     const {basket} = useContext(Context)
+     const {device} = useContext(Context)
+     const [value, setValue] = useState(2)
+     let cookie_req = document.cookie.split("=")
+     let cookies = cookie_req[1]
      useEffect( () =>{
         getBasketId(cookies).then(data=>basket.setBaskets(data))
         },[])
@@ -22,12 +23,13 @@ import {observer} from "mobx-react-lite";
             onHide()
         }
         else{
+
+            device.setCount()
         addBasketDevice({Count:value,basketId:basket.Baskets[0].id,deviceListId:id},).then(data=>onHide())
         }
     }
     //let NormObj = BasketId.split(',')
     //console.log(basket.Baskets[0])
-     console.log(BasketId[0])
 
     return (
         <Modal

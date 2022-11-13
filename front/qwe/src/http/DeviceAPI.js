@@ -32,8 +32,10 @@ export const fetchDeviceList = async (deviceId) =>{
     }})
     return data
 }
-export const mainApp = async () =>{
-    const {data} = await $host.post('api/')
+export const fetchOneDeviceList = async (id) =>{
+    const {data} = await $host.get('api/deviceList/getById',{params:{
+            id
+        }})
     return data
 }
 export const addBasketDevice = async (Count) =>{
@@ -50,3 +52,9 @@ export const getBasketId = async (id_forCookie) =>{
         }})
     return data
 }
+export const getBasketDevices = async (id_forCookie) =>{
+    const {data} = await $host.get('api/basketDevice/expGet',{params:{
+            id_forCookie
+        }})
+    return data
+    }

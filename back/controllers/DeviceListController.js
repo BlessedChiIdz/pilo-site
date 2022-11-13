@@ -16,13 +16,13 @@ class deviceListController{
             DeviceList = await deviceList.findAll({where:{deviceId}})
         return res.json(DeviceList)
     }
-    async getone(req,res){
-        const {id} = req.params
-        const DeviceList = await deviceList.findOne({
-            where: {id},
-        })
+    async getById(req, res){
+        const {id} = req.query
+        let DeviceList;
+        DeviceList = await deviceList.findAll({where:{id}})
         return res.json(DeviceList)
     }
 }
+
 
 module.exports = new deviceListController()
