@@ -13,7 +13,7 @@ import {useCookies} from "react-cookie";
      let cookie_req = document.cookie.split("=")
      let cookies = cookie_req[1]
      useEffect( () =>{
-        getBasketId(cookies).then(data=>basket.setBaskets(data))
+        getBasketId(cookies).then(data=>basket.setBasketsForCount(data))
         },[])
     // useEffect( () =>{
     //     getBasketId(cookies).then(data=>setBasketId(data))
@@ -25,7 +25,7 @@ import {useCookies} from "react-cookie";
         else{
 
             device.setCount()
-        addBasketDevice({Count:value,basketId:basket.Baskets[0].id,deviceListId:id},).then(data=>onHide())
+        addBasketDevice({Count:value,basketId:basket.BasketsForCount[0].id,deviceListId:id},).then(data=>onHide())
         }
     }
     //let NormObj = BasketId.split(',')

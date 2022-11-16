@@ -15,9 +15,9 @@ class basketDeviceController{
             return res.json(basket_device)
         }
         async delete(req,res){
-            const {id} = req.query
+            const id = req.query
             const qwe = await BasketDevice.destroy({
-                where : {id}
+                where : id
             })
             return res.json(qwe)
         }

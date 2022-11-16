@@ -2,19 +2,24 @@ import React, {useContext, useEffect, useState} from 'react';
 import {Button, Col, Row} from "react-bootstrap";
 import Count from "./Modals/Count";
 import {Context} from "../index";
-import {fetchOneDeviceList, getBasketDevices} from "../http/DeviceAPI";
+import {Delete, fetchOneDeviceList} from "../http/DeviceAPI";
 import {toJS} from "mobx";
 
 const BasketItems = ({basket}) => {
-    //const {device} = useContext(Context)
-    let [Item,setItem] = useState({})
+    let [dev,setDev] = useState({})
     useEffect(()=>{
-            fetchOneDeviceList(basket.deviceListId).then(data=>setItem(data))
-        },[])
-    //console.log(basket.deviceListId)
-    //console.log(toJS(device.BasketPodDevices))
+        fetchOneDeviceList(basket.deviceListId).then(data=>setDev(data))
+    },[])
+    if(dev[0]===undefined){
+        dev[0] = {
+            name: "John",
+        };
+    }
     //console.log(toJS(basket))
-    console.log(Item)
+    const click = () =>{
+        Delete(48).then(data=>fetchOneDeviceList(basket.deviceListId).then(data=>setDev(data)))
+    }
+    console.log(dev)
     return (
         <Col sm={12}>
             <Row className="mt-3 border-bottom border-2 border-dark position-relative">
@@ -25,11 +30,11 @@ const BasketItems = ({basket}) => {
                 </Col>
                 <Col sm={3}>
                     <div>
-                        {Item[0].name}B
+                        {dev[0].name}B
                     </div>
                 </Col>
                 <Col sm={3} className="text-center">
-                    <Button >Удалить</Button>
+                    <Button onClick={click}>Удалить</Button>
                 </Col>
             </Row>
         </Col>

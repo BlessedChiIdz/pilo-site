@@ -2,14 +2,27 @@ import {makeAutoObservable} from "mobx";
 
 export default class BasketStore {
     constructor() {
-        this._Baskets = []
+        this._BasketsforCount = []
+        this._BasketsforBasket = []
+        this._OneItem ={}
         makeAutoObservable(this)
     }
-    setBaskets (props){
-        this._Baskets=props
+    setBasketsForCount (props){
+        this._BasketsforCount=props
     }
-    get Baskets(){
-        return this._Baskets
+    get BasketsForCount(){
+        return this._BasketsforCount
     }
-
+    setBasketsForBasket (props){
+        this._BasketsforBasket=props
+    }
+    get BasketsForBasket(){
+        return this._BasketsforBasket
+    }
+    setItem(props){
+        this._OneItem= props
+    }
+    get Item(){
+     return this._OneItem
+    }
 }

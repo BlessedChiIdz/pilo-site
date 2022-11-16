@@ -58,3 +58,9 @@ export const getBasketDevices = async (id_forCookie) =>{
         }})
     return data
     }
+export const Delete = async (id) =>{
+    const {data} = await $host.get('api/basketDevice/delete',{params:{
+        id
+    }})
+    return data
+}

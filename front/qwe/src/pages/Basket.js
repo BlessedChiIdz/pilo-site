@@ -4,7 +4,7 @@ import PodDeviceList from "../components/PodDeviceList";
 import {Col, Container, Row} from "react-bootstrap";
 import {useParams} from "react-router-dom";
 import {Context} from "../index";
-import {fetchDeviceList, fetchOneDevices, getBasketDevices, getBasketId} from "../http/DeviceAPI";
+import {fetchDeviceList, fetchOneDeviceList, fetchOneDevices, getBasketDevices, getBasketId} from "../http/DeviceAPI";
 import {toJS} from "mobx";
 import BasketItemsList from "../components/BasketItemsList";
 
@@ -13,9 +13,10 @@ const Basket = () => {
     let cookie_req = document.cookie.split("=")
     let cookies = cookie_req[1]
     useEffect( () =>{
-        getBasketDevices(cookies).then(data=>basket.setBaskets(data))
-    },)
-    console.log(toJS(basket.Baskets))
+        getBasketDevices(cookies).then(data=>{
+            basket.setBasketsForBasket(data)
+        })
+    },[])
     return (
         <Container>
             <Row>
