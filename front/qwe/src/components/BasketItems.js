@@ -4,22 +4,23 @@ import Count from "./Modals/Count";
 import {Context} from "../index";
 import {Delete, fetchOneDeviceList} from "../http/DeviceAPI";
 import {toJS} from "mobx";
+import {observer} from "mobx-react-lite";
 
 const BasketItems = ({basket}) => {
+    const {user} = useContext(Context)
     let [dev,setDev] = useState({})
     useEffect(()=>{
-        fetchOneDeviceList(basket.deviceListId).then(data=>setDev(data))
+        fetchOneDeviceList(basket.deviceListId).then(data=>user.setItem(data))
     },[])
-    if(dev[0]===undefined){
-        dev[0] = {
+    if(user.Item[0]===undefined){
+        user.Item[0] = {
             name: "John",
         };
     }
-    //console.log(toJS(basket))
+     console.log(toJS(basket))
     const click = () =>{
-        Delete(48).then(data=>fetchOneDeviceList(basket.deviceListId).then(data=>setDev(data)))
+        Delete(basket.id).then(data=>fetchOneDeviceList(basket.deviceListId).then(data=>setDev(data)))
     }
-    console.log(dev)
     return (
         <Col sm={12}>
             <Row className="mt-3 border-bottom border-2 border-dark position-relative">
@@ -30,7 +31,7 @@ const BasketItems = ({basket}) => {
                 </Col>
                 <Col sm={3}>
                     <div>
-                        {dev[0].name}B
+                        {user.Item[0].name}B
                     </div>
                 </Col>
                 <Col sm={3} className="text-center">

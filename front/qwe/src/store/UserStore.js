@@ -4,6 +4,7 @@ export default class userStore{
     constructor() {
         this._isAuth=false
         this._user = {}
+        this._OneItem ={}
         makeAutoObservable(this)
     }
     setIsAuth(bool){
@@ -18,5 +19,11 @@ export default class userStore{
     }
     get user(){
         return this._user
+    }
+    setItem(props){
+        this._OneItem= props
+    }
+    get Item(){
+        return this._OneItem
     }
 }

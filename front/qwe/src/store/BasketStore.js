@@ -4,7 +4,6 @@ export default class BasketStore {
     constructor() {
         this._BasketsforCount = []
         this._BasketsforBasket = []
-        this._OneItem ={}
         makeAutoObservable(this)
     }
     setBasketsForCount (props){
@@ -19,10 +18,5 @@ export default class BasketStore {
     get BasketsForBasket(){
         return this._BasketsforBasket
     }
-    setItem(props){
-        this._OneItem= props
-    }
-    get Item(){
-     return this._OneItem
-    }
+
 }
