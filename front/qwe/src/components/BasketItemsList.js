@@ -8,12 +8,12 @@ import {toJS} from "mobx";
 import {observer} from "mobx-react-lite";
 
 
-const BasketItemsList = observer(() => {
+const BasketItemsList = observer(({dev}) => {
     const {basket} = useContext(Context)
     return (
         <Row>
             {basket.BasketsForBasket.map(basket=>
-                <BasketItems key = {basket.id} basket={basket}/>
+                <BasketItems key = {basket.id} basket={basket} dev={dev}/>
             )}
         </Row>
     );

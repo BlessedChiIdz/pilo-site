@@ -19,8 +19,8 @@ const DevicePage = () => {
 
 console.log(toJS(device.DeviceList))
         return (
-        <Container className="mt-3">
-            <Row>
+        <Container className="mt-3 ">
+            <Row className="border-bottom border-2 border-dark pb-3">
                 <Col sm={6}>
                     НАИМЕНОВАНИЕ
                 </Col>

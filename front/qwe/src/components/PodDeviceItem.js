@@ -27,7 +27,7 @@ const PodDeviceItem = ({device}) => {
                         {device.price}P
                     </div>
                 </Col>
-                    <Col sm={3} className="text-center">
+                    <Col sm={3} className="text-end">
                         <Button variant={"outline-dark"} className="mb-2"  onClick={()=>setMenuVisible(true)}>Добавить в корзину</Button>
                     </Col>
                     <Count show={MenuVisible} onHide={()=>setMenuVisible(false)} id={device.id}/>

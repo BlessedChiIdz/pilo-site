@@ -1,43 +1,48 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {Button, Col, Row} from "react-bootstrap";
+import {Button, Col, Container, Row} from "react-bootstrap";
 import Count from "./Modals/Count";
 import {Context} from "../index";
 import {Delete, fetchOneDeviceList} from "../http/DeviceAPI";
 import {toJS} from "mobx";
 import {observer} from "mobx-react-lite";
 
-const BasketItems = ({basket}) => {
+const BasketItems = ({basket}, {dev}) => {
     const {user} = useContext(Context)
-    let [dev,setDev] = useState({})
-    useEffect(()=>{
-        fetchOneDeviceList(basket.deviceListId).then(data=>user.setItem(data))
-    },[])
-    if(user.Item[0]===undefined){
-        user.Item[0] = {
-            name: "John",
-        };
-    }
-     console.log(toJS(basket))
+    // if(dev[0]===undefined){
+    //     dev[0] = {
+    //         name: "John",
+    //     };
+    // }
+
     const click = () =>{
-        Delete(basket.id).then(data=>fetchOneDeviceList(basket.deviceListId).then(data=>setDev(data)))
+         Delete(basket[0].idForDelete).then(data=>user.setItem(user.Item+1))
     }
+    // console.log(toJS(basket[0]))
+    // console.log(dev)
     return (
-        <Col sm={12}>
-            <Row className="mt-3 border-bottom border-2 border-dark position-relative">
-                <Col sm={6}>
-                    <div>
-                        {basket.Count}
-                    </div>
-                </Col>
-                <Col sm={3}>
-                    <div>
-                        {user.Item[0].name}B
-                    </div>
-                </Col>
-                <Col sm={3} className="text-center">
-                    <Button onClick={click}>Удалить</Button>
-                </Col>
-            </Row>
+        <Col sm={12} className="">
+            <Container className="align-items: center">
+                <Row className="mt-3 border-bottom border-2 border-dark position-relative ">
+                    <Col sm={3}>
+                        <div>
+                            {basket[0].name}
+                        </div>
+                    </Col>
+                    <Col sm={3}>
+                        <div>
+                            {basket[0].price}Руб.
+                        </div>
+                    </Col>
+                    <Col sm={3}>
+                        <div>
+                            Количество:{basket[0].Count}
+                        </div>
+                    </Col>
+                    <Col sm={3} className="text-center">
+                        <Button onClick={click}>Удалить</Button>
+                    </Col>
+                </Row>
+            </Container>
         </Col>
     );
 };

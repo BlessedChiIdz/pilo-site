@@ -20,8 +20,7 @@ const NavBar = observer(() => {
     }
     return (
         <Navbar bg="dark" variant="dark">
-            <Container>
-                <NavLink to={SHOP_ROUTE} style={{color: 'white'}}>СИБСТРОЙКОМПЛЕКС</NavLink>
+                <NavLink to={SHOP_ROUTE} style={{color: 'white',marginLeft:'20px'}}>СИБСТРОЙКОМПЛЕКС</NavLink>
                 {user.isAuth ?
                     <Nav className="ml-auto" style={{color: "white"}}>
                         <Button variant={"outline-light"} onClick={()=>navigate(ADMIN_ROUTE)}>Админ панель</Button>
@@ -33,14 +32,13 @@ const NavBar = observer(() => {
                         </Button>
                     </Nav>
                     :
-                    <Nav className="ml-auto" style={{color: "white"}}>
-                        <Button variant={"outline-light"} onClick={()=>navigate(LOGIN_ROUTE)}>Авторизация</Button>
+                    <Nav className="ml-auto ms-auto" style={{color: "white"}}>
+                        <Button variant={"outline-light"} onClick={()=>navigate(LOGIN_ROUTE)} className="">Авторизация</Button>
                     </Nav>
                 }
-            </Container>
-            <Container className="text-primary">{device.Count}</Container>
-            <NavLink to={BASKET_ROUTE} style={{color: 'white'}}>СИБСТРОЙКОМПЛЕКС</NavLink>
-            <img className="img-fluid" src="https://forum.e-liquid-recipes.com/uploads/default/original/3X/c/f/cf192e53a892ca8ed565985bb8075e3e0175af96.png"></img>
+                <NavLink to={BASKET_ROUTE} style={{color: 'white'}} className="ms-2"><img className="" src="https://i.yapx.ru/U3aLX.jpg"></img></NavLink>
+
+
         </Navbar>
     );
 });

@@ -1,5 +1,6 @@
-const{BasketDevice, Basket} = require('../models/models')
+const{BasketDevice, Basket, Device, deviceList} = require('../models/models')
 const ApiError = require("../error/ApiError");
+const {json} = require("express");
 
 class basketDeviceController{
         async add(req,res){
@@ -8,9 +9,14 @@ class basketDeviceController{
             return res.json(basketDevice)
         }
         async getAll(req,res){
-            const {basketId} = req.query
+            let {id_forCookie} = req.query;
+            const basketzxc = await Basket.findAll(
+                {
+                    where: {id_forCookie},
+                },
+            )
             const basket_device = await BasketDevice.findAll({
-                where:{basketId:basketId}
+                where:{basketId:basketzxc[0].id}
             })
             return res.json(basket_device)
         }
@@ -31,7 +37,30 @@ class basketDeviceController{
             const basket_device = await BasketDevice.findAll({
                 where:{basketId:basketzxc[0].id}
             })
-            return res.json(basket_device)
+            // console.log(basket_device[3])
+           let finalDevice = await Promise.all(basket_device.map(async(device) => {
+                  let anime = await deviceList.findAll({
+                       where: {id: device.deviceListId}
+                   },)
+               // anime[0].dataValues.Count=basket_device.Count
+               return(anime)
+               })
+           )
+            let i =0
+            while(basket_device[i]!=undefined){
+                finalDevice[i][0].dataValues.Count = basket_device[i].Count
+                finalDevice[i][0].dataValues.idForDelete = basket_device[i].id
+                i++
+            }
+
+            // finalDevice[0][0].dataValues.Count=1
+            //   console.log(finalDevice[1][0].dataValues)
+
+            // let finalDevice = await deviceList.findAll({
+            //     where:{id:6}
+            // })
+            //  basket_device.map(device=>console.log(device.deviceListId))
+            return res.json(finalDevice)
         }
 
 }
