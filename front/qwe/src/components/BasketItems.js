@@ -8,6 +8,10 @@ import {observer} from "mobx-react-lite";
 
 const BasketItems = ({basket}, {dev}) => {
     const {user} = useContext(Context)
+    let [price,setPrice] = useState(0)
+    useEffect(()=>{
+        setPrice(basket[0].Count*basket[0].price)
+    },)
     // if(dev[0]===undefined){
     //     dev[0] = {
     //         name: "John",
@@ -15,7 +19,7 @@ const BasketItems = ({basket}, {dev}) => {
     // }
 
     const click = () =>{
-         Delete(basket[0].idForDelete).then(data=>user.setItem(user.Item+1))
+        Delete(basket[0].idForDelete).then(data=>user.setItem(user.Item+1))
     }
     // console.log(toJS(basket[0]))
     // console.log(dev)
@@ -30,7 +34,7 @@ const BasketItems = ({basket}, {dev}) => {
                     </Col>
                     <Col sm={3}>
                         <div>
-                            {basket[0].price}Руб.
+                            {price}Руб.
                         </div>
                     </Col>
                     <Col sm={3}>

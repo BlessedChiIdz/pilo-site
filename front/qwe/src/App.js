@@ -8,6 +8,7 @@ import {check} from "./http/userAPI";
 import {Spinner} from "react-bootstrap";
 import {createBasket} from "./http/DeviceAPI";
 import axios from "axios";
+import "./buttons.css"
 const App = observer(() =>{
     const{user} = useContext(Context)
     const [loading, setLoading] = useState(true)

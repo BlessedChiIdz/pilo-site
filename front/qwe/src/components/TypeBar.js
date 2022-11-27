@@ -1,24 +1,22 @@
 import React, {useContext} from 'react';
 import {observer} from "mobx-react-lite";
 import {Context} from "../index";
-import {ListGroup} from "react-bootstrap";
-
+import {Button, Container, ListGroup} from "react-bootstrap";
 const TypeBar = observer(() => {
     const  {device} = useContext(Context)
     return (
-        <ListGroup>
+        <Container >
             {device.types.map(type=>
-            <ListGroup.Item
-                className="text-center"
-                style={{cursor: 'pointer'}}
+            <button
+                className="custom-btn btn-8"
                 active={type.id === device.selectedType.id}
                 onClick={()=> device.setSelectedType(type)}
                 key={type.id}
             >
-                {type.name}
-            </ListGroup.Item>
+                <span>{type.name}</span>
+            </button>
             )}
-        </ListGroup>
+        </Container>
     );
 });
 

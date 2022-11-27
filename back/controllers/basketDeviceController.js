@@ -50,6 +50,7 @@ class basketDeviceController{
             while(basket_device[i]!=undefined){
                 finalDevice[i][0].dataValues.Count = basket_device[i].Count
                 finalDevice[i][0].dataValues.idForDelete = basket_device[i].id
+                finalDevice[i][0].dataValues.finalPrice = basket_device[i].Count * finalDevice[i][0].price
                 i++
             }
 
@@ -62,6 +63,31 @@ class basketDeviceController{
             //  basket_device.map(device=>console.log(device.deviceListId))
             return res.json(finalDevice)
         }
+        async plusCount(req,res){
+        const id = req.query
+        const prevCount = await BasketDevice.findAll({
+            where : id
+        })
+          let finalCount = prevCount[0].Count + 1
+          const qwe = await BasketDevice.update(
+            {Count: finalCount},
+            {where:id}
+        )
+            return res.json(0)
+    }
+
+        async minusCount(req,res){
+            const id = req.query
+            const prevCount = await BasketDevice.findAll({
+                where : id
+            })
+            let finalCount = prevCount[0].Count - 1
+            const qwe = await BasketDevice.update(
+                {Count: finalCount},
+                {where:id}
+            )
+            return res.json(0)
+    }
 
 }
 

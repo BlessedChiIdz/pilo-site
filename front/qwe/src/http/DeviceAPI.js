@@ -64,3 +64,15 @@ export const Delete = async (id) =>{
     }})
     return data
 }
+export const Plus = async (id) =>{
+    const {data} = await $host.get('api/basketDevice/plus',{params:{
+            id
+        }})
+    return data
+}
+export const Minus = async (id) =>{
+    const {data} = await $host.get('api/basketDevice/minus',{params:{
+            id
+        }})
+    return data
+}

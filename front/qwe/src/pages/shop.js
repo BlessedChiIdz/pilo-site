@@ -19,7 +19,7 @@ useEffect(()=>{
     return (
         <Container>
             <Row>
-                <Col md={3} className="mt-3">
+                <Col md={3} className="mt-3 buttons">
                     <TypeBar/>
                 </Col>
                 <Col md={9}>
