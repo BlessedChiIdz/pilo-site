@@ -51,6 +51,11 @@ const Basket = observer(() => {
     console.log(flag)
     return (
         <Container>
+            <Row>
+                <Col sm={12}>
+                    <BasketItemsList dev={dev}/>
+                </Col>
+            </Row>
             <Container className="oplata">
                 <button className="custom-btn btn-7" onClick={twpProc}>
                     <span>Картой</span>
@@ -59,11 +64,7 @@ const Basket = observer(() => {
                     <span>Наличными</span>
                 </button>
             </Container>
-            <Row>
-                <Col sm={12}>
-                    <BasketItemsList dev={dev}/>
-                </Col>
-            </Row>
+            <Container className="oplata">
             {
                 price===0 ?
                 <div className="basketFinal">
@@ -80,8 +81,9 @@ const Basket = observer(() => {
                         Итого:{price}
                     </div>
             }
-            <Button onClick={()=>setVisible(true)}> add</Button>
-            <FinalForm show={visible} onHide={()=>setVisible(false)}/>
+                <Button onClick={()=>setVisible(true)}>Оформить</Button>
+                <FinalForm price={price} show={visible} onHide={()=>setVisible(false)}/>
+            </Container>
         </Container>
     );
 });

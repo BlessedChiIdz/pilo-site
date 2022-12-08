@@ -18,13 +18,13 @@ useEffect(()=>{
 },[device.selectedType])
     return (
         <Container>
-            <Row>
+            <Row className="col-auto d-flex">
                 <Col md={3} className="mt-3 buttons">
                     <TypeBar/>
                 </Col>
-                <Col md={9} className="">
+                <div md={9} className="col">
                     <DeviceList></DeviceList>
-                </Col>
+                </div>
             </Row>
         </Container>
     );

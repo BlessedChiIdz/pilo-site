@@ -1,13 +1,28 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {createType, sendMail} from "../../http/DeviceAPI";
 import {Button, Form, Modal} from "react-bootstrap";
+import {Context} from "../../index";
+import {toJS} from "mobx";
 
-const FinalForm = ({show,onHide}) => {
-
+const FinalForm = ({price,show,onHide}) => {
+    const {basket} = useContext(Context)
     const [value, setValue] = useState('')
+    let text = ''
     const addType = () => {
-        sendMail("das").then(data => {
+        text=text+value+'\n'
+        basket.BasketsForBasket.map(basket=>{
+            text = text + 'Количество:' + basket[0].Count + ' '
+            text = text + 'Название:' + basket[0].name + ' '
+            text = text + 'Цена за штуку:' + basket[0].price + ' '
+            text = text + 'Цена * количество:' + basket[0].finalPrice + ' '
+            text+='\n'
+        })
+        text = text + 'Финальная цена:' + price
+        const formData = new FormData()
+        formData.append('text',text)
+        sendMail(formData).then(data => {
             setValue('')
+            text=''
             onHide()
         })
     }

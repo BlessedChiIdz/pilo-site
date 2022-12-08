@@ -22,7 +22,7 @@ const NavBar = observer(() => {
         <Navbar bg="dark" variant="dark">
                 <NavLink to={SHOP_ROUTE} style={{color: 'white',marginLeft:'20px'}}>СИБСТРОЙКОМПЛЕКС</NavLink>
                 {user.isAuth ?
-                    <Nav className="ml-auto" style={{color: "white"}}>
+                    <Nav className="ml-auto ms-auto" style={{color: "white"}}>
                         <Button variant={"outline-light"} onClick={()=>navigate(ADMIN_ROUTE)}>Админ панель</Button>
                         <Button variant={"outline-light"}
                         className="ms-4"

@@ -7,7 +7,7 @@ import {Row} from "react-bootstrap";
 const DeviceList = observer(() => {
     const {device} = useContext(Context)
     return (
-        <Row className="d-flex">
+        <Row className="d-flex Ramp">
             {device.devices.map(device=>
                 <DeviceItem key={device.id} device={device}/>
             )}
