@@ -22,7 +22,7 @@ useEffect(()=>{
                 <Col md={3} className="mt-3 buttons">
                     <TypeBar/>
                 </Col>
-                <Col md={9}>
+                <Col md={9} className="">
                     <DeviceList></DeviceList>
                 </Col>
             </Row>

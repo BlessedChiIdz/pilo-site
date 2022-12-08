@@ -1,26 +1,24 @@
 import React, {useContext, useEffect, useState} from 'react';
 import DeviceList from "../components/DeviceList";
 import PodDeviceList from "../components/PodDeviceList";
-import {Col, Container, Row} from "react-bootstrap";
+import {Button, Col, Container, Row} from "react-bootstrap";
 import {useParams} from "react-router-dom";
 import {Context} from "../index";
 import {
-    fetchDeviceList,
-    fetchOneDeviceList,
-    fetchOneDevices,
     getBasketDevices,
-    getBasketId,
-    Plus
 } from "../http/DeviceAPI";
 import {observable, set, toJS} from "mobx"
 import BasketItemsList from "../components/BasketItemsList";
 import {observer} from "mobx-react-lite";
+import FinalForm from "../components/Modals/finalForm";
+import CreateType from "../components/Modals/CreateType";
 const Basket = observer(() => {
     const {basket} = useContext(Context)
     const {user} = useContext(Context)
     let [dev,setDev] = useState(0)
     let [price,setPrice] = useState(0)
     let [flagTxt,setFlagTxt] = useState(0)
+    let [visible,setVisible] = useState(false)
     let cookie_req = document.cookie.split("=")
     let cookies = cookie_req[1]
     let summ=0
@@ -82,6 +80,8 @@ const Basket = observer(() => {
                         Итого:{price}
                     </div>
             }
+            <Button onClick={()=>setVisible(true)}> add</Button>
+            <FinalForm show={visible} onHide={()=>setVisible(false)}/>
         </Container>
     );
 });
