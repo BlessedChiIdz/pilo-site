@@ -1,13 +1,7 @@
 import React, {useContext, useEffect, useState} from 'react';
-import DeviceList from "../components/DeviceList";
-import PodDeviceList from "../components/PodDeviceList";
 import {Button, Col, Container, Row} from "react-bootstrap";
-import {useParams} from "react-router-dom";
 import {Context} from "../index";
-import {
-    getBasketDevices,
-} from "../http/DeviceAPI";
-import {observable, set, toJS} from "mobx"
+import {getBasketDevices} from "../http/DeviceAPI";
 import BasketItemsList from "../components/BasketItemsList";
 import {observer} from "mobx-react-lite";
 import FinalForm from "../components/Modals/finalForm";
@@ -82,7 +76,7 @@ const Basket = observer(() => {
                     </div>
             }
                 <Button onClick={()=>setVisible(true)}>Оформить</Button>
-                <FinalForm price={price} show={visible} onHide={()=>setVisible(false)}/>
+                <FinalForm price={price} flag={flagTxt} show={visible} onHide={()=>setVisible(false)}/>
             </Container>
         </Container>
     );

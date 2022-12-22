@@ -21,8 +21,6 @@ const BasketItems = ({basket}, {dev}) => {
     const click = () =>{
         Delete(basket[0].idForDelete).then(data=>user.setItem(user.Item+1))
     }
-    // console.log(toJS(basket[0]))
-    // console.log(dev)
     return (
         <Col sm={12} className="">
             <Container className="align-items: center">
