@@ -67,4 +67,12 @@ export const Delete = async (id) =>{
 export const sendMail = async (text) =>{
     const {data} = await $host.post('api/mail/post',text)
     return data
-    }
+}
+export const checkCookie = async (cook) =>{
+    const {data} = await $host.post('api/mail/cookie',cook)
+    return data
+}
+export const MainApi = async () =>{
+    const {data} = await $host.post('api/')
+    return data
+}
