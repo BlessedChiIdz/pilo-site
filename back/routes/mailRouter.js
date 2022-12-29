@@ -7,6 +7,5 @@ const router = new Router()
 //     mailController.send
 // })
 router.post('/post', MailController.send)
-router.post('/cookie',MailController.cookieToUser)
 
 module.exports = router

@@ -6,18 +6,13 @@ import {ADMIN_ROUTE, BASKET_ROUTE, LOGIN_ROUTE, SHOP_ROUTE} from "../utils/const
 import {observer} from "mobx-react-lite";
 import {useNavigate} from "react-router-dom";
 import DeviceStore from "../store/DeviceStore";
-import BasketNOItems from "./Modals/BasketNOItems";
 
 
 const NavBar = observer(() => {
     const  {device} = useContext(Context)
-    let [visible,setVisible] = useState(false)
     const  {user} = useContext(Context)
     const navigate = useNavigate()
-    let qwe = document.cookie;
-    let zxc = qwe.slice("=")
-    console.log(zxc[1])
-    const [cook,setCook] = useState(zxc[1])
+
     let countCookie = 0;
     const logOut = () =>{
         user.setUser({})
@@ -41,14 +36,9 @@ const NavBar = observer(() => {
                         <Button variant={"outline-light"} onClick={()=>navigate(LOGIN_ROUTE)} className="">Авторизация</Button>
                     </Nav>
                 }
-                {zxc[1] !== undefined ? <NavLink to={BASKET_ROUTE} style={{color: 'white'}} className="ms-2"><img className="" src="https://i.yapx.ru/U3aLX.jpg"></img></NavLink>
-                    :
-                    // <button type="button" className="btn btn-primary" onClick={()=>setVisible(true)}>
-                    //     <img className="" src="https://i.yapx.ru/U3aLX.jpg"></img>
-                    // </button>
-                    <NavLink style={{color: 'white'}} className="ms-2" onClick={()=>setVisible(true)}><img className="" src="https://i.yapx.ru/U3aLX.jpg"></img></NavLink>
-                }
-                <BasketNOItems show={visible} onHide={()=>setVisible(false)}/>
+                <NavLink to={BASKET_ROUTE} style={{color: 'white'}} className="ms-2"><img className="" src="https://i.yapx.ru/U3aLX.jpg"></img></NavLink>
+
+
         </Navbar>
     );
 });

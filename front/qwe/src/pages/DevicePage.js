@@ -1,7 +1,7 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {Button, Card, Col, Container, Image, Row} from "react-bootstrap";
 import {useParams} from "react-router-dom";
-import { fetchDeviceList, fetchDevices, fetchOneDevices} from "../http/DeviceAPI";
+import {fetchDeviceList, fetchDevices, fetchOneDevices} from "../http/DeviceAPI";
 import PodDeviceList from "../components/PodDeviceList"
 import {Context} from "../index";
 import {login, registration} from "../http/userAPI";
