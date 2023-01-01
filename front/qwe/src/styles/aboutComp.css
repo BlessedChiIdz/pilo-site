@@ -1,0 +1,16 @@
+.aboutComp{
+    font-size: 1.6em;
+    border: solid;
+    border-color: #0c0a0a;
+    color: #1a1a1a;
+}
+.textComp{
+    text-align: center;
+    padding-left: 2%;
+    display: inline-block;
+    padding-bottom: 20%;
+    width: 98%;
+}
+.imageComp{
+    display: inline-block;
+}
