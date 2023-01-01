@@ -1,7 +1,10 @@
 import React from 'react';
 import {useNavigate} from "react-router-dom";
-import "../Styles/aboutComp.css";
-import Carouselzxc from "../components/Carousel";
+
+// import "../Styles/aboutComp.css";
+// import Carouselzxc from "../components/Carousel";
+import {CreateDeviceList} from "../http/DeviceAPI";
+import axios from "axios";
 const Main = () => {
     const  navigate = useNavigate()
     const click=()=>{
