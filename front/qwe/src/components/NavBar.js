@@ -24,7 +24,7 @@ const NavBar = observer(() => {
         user.setIsAuth(false)
     }
     return (
-        <Navbar bg="dark" variant="dark">
+        <Navbar bg="dark" variant="dark fixed-top">
                 <NavLink to={SHOP_ROUTE} style={{color: 'white',marginLeft:'20px'}}>СИБСТРОЙКОМПЛЕКС</NavLink>
                 {user.isAuth ?
                     <Nav className="ml-auto ms-auto" style={{color: "white"}}>

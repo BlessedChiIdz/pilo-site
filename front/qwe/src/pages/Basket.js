@@ -57,6 +57,7 @@ const Basket = observer(() => {
     }
     return (
         <Container>
+            <div style={{marginTop:"60px"}}></div>
             <Row>
                 <Col sm={12}>
                     <BasketItemsList dev={dev}/>

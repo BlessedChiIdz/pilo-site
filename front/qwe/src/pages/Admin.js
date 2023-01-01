@@ -9,6 +9,7 @@ const Admin = () => {
     const [deviceListVisible, setDeviceListVisible] = useState(false)
     return (
         <Container className="d-flex flex-column">
+            <div style={{marginTop:"60px"}}></div>
             <Button onClick={()=>setTypeVisible(true)} variant={"outline-dark"} className="mt-2">Добавить тип</Button>
             <Button onClick={()=>setDeviceVisible(true)} variant={"outline-dark"} className="mt-2">Добавить устройство</Button>
             <Button onClick={()=>setDeviceListVisible(true)} variant={"outline-dark"} className="mt-2">Добавить подустройство</Button>
