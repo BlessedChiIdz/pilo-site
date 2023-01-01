@@ -38,7 +38,7 @@ app.use('/api', router)
                     let l = range - i - 1;
                     m[r] = (l in m) ? m[l] : l;
                 }
-                await res.cookie('cookieName', a[0], {maxAge: 1000 * 60 * 60 * 24 * 360, httpOnly: false});
+                await res.cookie('cookieName', a[0], {maxAge: 1000 * 60 * 60 * 24 , httpOnly: false});
                 const {basket} = await Basket.findAll({
                     where:{id_forCookie:a[0]}
                 })

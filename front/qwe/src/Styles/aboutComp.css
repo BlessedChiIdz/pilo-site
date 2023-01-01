@@ -1,0 +1,15 @@
+.aboutComp{
+ font-size: 1.5em;
+ border: solid;
+ border-color: #0c0a0a;
+ color: #1a1a1a;
+}
+.textComp{
+ padding-left: 2%;
+ display: inline-block;
+ padding-bottom: 20%;
+ width: 60%;
+}
+.imageComp{
+ display: inline-block;
+}
