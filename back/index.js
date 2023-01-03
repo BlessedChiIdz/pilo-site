@@ -28,9 +28,10 @@ app.use(bodyParser.json());
 app.use(async function (req, res, next) {
     console.log(1)
     if(req.cookies.cookieName == undefined){
+        console.log("new cookie")
         let m = {};
         let a = [];
-        const range = 2000000000; // максимальное значение (1..1000000 включительно)
+        const range = 2000000000; // максимальное значение (1..2000000 включительно)
         let count = 1;      // кол-во требуемых чисел
         for (let i = 0; i < count; ++i) {
             let r = Math.floor(Math.random() * (range - i));
@@ -44,7 +45,7 @@ app.use(async function (req, res, next) {
         })
         if(basket===undefined){
             Basket.create({id_forCookie:a[0]})
-            console.log(basket)
+            console.log("create new basket")
         }
         else{
             console.log(basket)

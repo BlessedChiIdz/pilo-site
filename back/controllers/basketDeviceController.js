@@ -29,7 +29,6 @@ class basketDeviceController{
         }
         async ExpGet(req,res){
             let {id_forCookie} = req.query;
-
             const basketzxc = await Basket.findAll(
                 {
                     where: {id_forCookie},

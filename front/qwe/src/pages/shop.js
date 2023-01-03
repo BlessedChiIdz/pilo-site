@@ -18,7 +18,7 @@ useEffect(()=>{
 },[device.selectedType])
     return (
         <Container>
-            <div style={{marginTop:"60px"}}></div>
+            <div style={{marginTop:"70px"}}></div>
             <Row className="col-auto d-flex">
                 <Col md={3} className="mt-3 buttons">
                     <TypeBar/>
