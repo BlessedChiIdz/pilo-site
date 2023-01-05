@@ -26,9 +26,7 @@ app.use(cookieParser())
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(async function (req, res, next) {
-    console.log(1)
-    if(req.cookies.cookieName == undefined){
-        console.log("new cookie")
+    if(req.cookies.cookieName === undefined){
         let m = {};
         let a = [];
         const range = 2000000000; // максимальное значение (1..2000000 включительно)
@@ -38,6 +36,7 @@ app.use(async function (req, res, next) {
             a.push(((r in m) ? m[r] : r) + 1);
             let l = range - i - 1;
             m[r] = (l in m) ? m[l] : l;
+            console.log(req.cookies.cookieName)
         }
         await res.cookie('cookieName', a[0], {maxAge: 1000 * 60 * 60 * 24 * 360, httpOnly: false});
         const {basket} = await Basket.findAll({
@@ -46,9 +45,6 @@ app.use(async function (req, res, next) {
         if(basket===undefined){
             Basket.create({id_forCookie:a[0]})
             console.log("create new basket")
-        }
-        else{
-            console.log(basket)
         }
         next();
     }

@@ -11,9 +11,6 @@ import {checkCookie, MainApi} from "./http/DeviceAPI";
 const App = observer(() =>{
     let qwe = document.cookie;
     let zxc = qwe.slice("=")
-    console.log(zxc[1])
-    useMemo(()=>{
-    }, [])
     const{user} = useContext(Context)
     const [loading, setLoading] = useState(true)
     useEffect(()=>{

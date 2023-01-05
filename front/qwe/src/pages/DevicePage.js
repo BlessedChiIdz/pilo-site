@@ -4,8 +4,6 @@ import {useParams} from "react-router-dom";
 import { fetchDeviceList, fetchDevices, fetchOneDevices} from "../http/DeviceAPI";
 import PodDeviceList from "../components/PodDeviceList"
 import {Context} from "../index";
-import {login, registration} from "../http/userAPI";
-import {SHOP_ROUTE} from "../utils/consts";
 import {toJS} from "mobx";
 const DevicePage = () => {
     const [deviceInfo, setDeviceInfo] = useState({info: []})
