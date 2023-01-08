@@ -41,13 +41,7 @@ const NavBar = observer(() => {
                         <Button variant={"outline-light"} onClick={()=>navigate(LOGIN_ROUTE)} className="">Авторизация</Button>
                     </Nav>
                 }
-                {zxc[1] !== undefined ? <NavLink to={BASKET_ROUTE} style={{color: 'white'}} className="ms-2"><img className="" src="https://i.yapx.ru/U3aLX.jpg"></img></NavLink>
-                    :
-                    // <button type="button" className="btn btn-primary" onClick={()=>setVisible(true)}>
-                    //     <img className="" src="https://i.yapx.ru/U3aLX.jpg"></img>
-                    // </button>
-                    <NavLink style={{color: 'white'}} className="ms-2" onClick={()=>setVisible(true)}><img className="" src="https://i.yapx.ru/U3aLX.jpg"></img></NavLink>
-                }
+                <NavLink to={BASKET_ROUTE} style={{color: 'white'}} className="ms-2"><img className="" src="https://i.yapx.ru/U3aLX.jpg"></img></NavLink>
                 <BasketNOItems show={visible} onHide={()=>setVisible(false)}/>
         </Navbar>
     );

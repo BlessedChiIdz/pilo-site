@@ -38,10 +38,6 @@ const Basket = observer(() => {
         setPrice(summ)
         setFlagTxt(0)
     }
-    if(zxc[1] === undefined){
-        navigate(SHOP_ROUTE)
-
-    }
     if(zxc[1]!==undefined){
     useEffect( () =>{
         getBasketDevices(cookies).then(data=>basket.setBasketsForBasket(data))
