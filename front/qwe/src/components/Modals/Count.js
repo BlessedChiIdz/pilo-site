@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {Button, Dropdown, Form, Modal} from "react-bootstrap";
-import {addBasketDevice, CheckBasketId, fetchTypes, getBasketId} from "../../http/DeviceAPI";
+import {addBasketDevice, fetchTypes, getBasketId} from "../../http/DeviceAPI";
 import {Context} from "../../index";
 import data from "bootstrap/js/src/dom/data";
 import {observer} from "mobx-react-lite";

@@ -42,10 +42,6 @@ export const addBasketDevice = async (Count) =>{
     const {data} = await $host.post('api/basketDevice/add', Count)
     return data
 }
-export const CheckBasketId = async () =>{
-    const {data} = await $host.get('api/basket/check')
-    return data
-}
 export const getBasketId = async (id_forCookie) =>{
     const {data} = await $host.get('api/basket/get',{params:{
             id_forCookie

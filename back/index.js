@@ -18,42 +18,42 @@ let nodemailer = require('nodemailer');
 const mailer = require('./mail')
 const req = require("express/lib/request");
 
-app.use(cors())
+app.use(cors({ origin: true, credentials: true }))
 app.use(express.json())
 app.use(fileUpload({}))
 app.use(express.static(path.resolve(__dirname , 'static')))
 app.use(cookieParser())
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(async function (req, res, next) {
-    if(req.cookies.cookieName === undefined){
-        let m = {};
-        let a = [];
-        const range = 2000000000; // максимальное значение (1..2000000 включительно)
-        let count = 1;      // кол-во требуемых чисел
-        for (let i = 0; i < count; ++i) {
-            let r = Math.floor(Math.random() * (range - i));
-            a.push(((r in m) ? m[r] : r) + 1);
-            let l = range - i - 1;
-            m[r] = (l in m) ? m[l] : l;
-            console.log(req.cookies.cookieName)
-        }
-        await res.cookie('cookieName', a[0], {maxAge: 1000 * 60 * 60 * 24 * 360, httpOnly: false});
-        const {basket} = await Basket.findAll({
-            where:{id_forCookie:a[0]}
-        })
-        if(basket===undefined){
-            Basket.create({id_forCookie:a[0]})
-            console.log("create new basket")
-        }
-        next();
-    }
-    else{
-        console.log(req.cookies.cookieName)
-        console.log("yes cookie")
-        next()
-    }
-});
+// app.use(async function (req, res, next) {
+//     if(req.cookies.cookieName === undefined){
+//         let m = {};
+//         let a = [];
+//         const range = 2000000000; // максимальное значение (1..2000000 включительно)
+//         let count = 1;      // кол-во требуемых чисел
+//         for (let i = 0; i < count; ++i) {
+//             let r = Math.floor(Math.random() * (range - i));
+//             a.push(((r in m) ? m[r] : r) + 1);
+//             let l = range - i - 1;
+//             m[r] = (l in m) ? m[l] : l;
+//             console.log(req.cookies.cookieName)
+//         }
+//         await res.cookie('cookieName', a[0], {maxAge: 1000 * 60 * 60 * 24 * 360, httpOnly: false});
+//         const {basket} = await Basket.findAll({
+//             where:{id_forCookie:a[0]}
+//         })
+//         if(basket===undefined){
+//             Basket.create({id_forCookie:a[0]})
+//             console.log("create new basket")
+//         }
+//         next();
+//     }
+//     else{
+//         console.log(req.cookies.cookieName)
+//         console.log("yes cookie")
+//         next()
+//     }
+// });
 app.use('/api', router)
 
 
