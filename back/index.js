@@ -18,7 +18,12 @@ let nodemailer = require('nodemailer');
 const mailer = require('./mail')
 const req = require("express/lib/request");
 
-app.use(cors({ origin: true, credentials: true }))
+
+app.use(cors({
+    credentials: true,
+    origin: true
+}))
+
 app.use(express.json())
 app.use(fileUpload({}))
 app.use(express.static(path.resolve(__dirname , 'static')))

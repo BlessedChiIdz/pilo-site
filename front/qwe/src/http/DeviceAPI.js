@@ -13,7 +13,7 @@ export const createDevice = async (device) =>{
     return data
 }
 export const fetchDevices = async (typeId) =>{
-    const {data} = await $host.get('api/device',{params:{
+    const {data} = await $host.get('api/device/',{params:{
         typeId
         }})
     return data
@@ -70,5 +70,9 @@ export const checkCookie = async (cook) =>{
 }
 export const MainApi = async () =>{
     const {data} = await $host.post('api/')
+    return data
+}
+export const cookieCheck = async () =>{
+    const {data} = await $host.post('api/cookie')
     return data
 }

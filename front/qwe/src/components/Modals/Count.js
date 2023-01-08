@@ -1,23 +1,23 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {Button, Dropdown, Form, Modal} from "react-bootstrap";
-import {addBasketDevice, fetchTypes, getBasketId} from "../../http/DeviceAPI";
+import {addBasketDevice, cookieCheck, fetchTypes, getBasketId} from "../../http/DeviceAPI";
 import {Context} from "../../index";
-import data from "bootstrap/js/src/dom/data";
 import {observer} from "mobx-react-lite";
 import {useCookies} from "react-cookie";
-
  const Count = observer(({show, onHide, id}) => {
      const {basket} = useContext(Context)
      const {device} = useContext(Context)
+     const [cookie,setCookie] = useCookies()
      const [value, setValue] = useState(1)
      let cookie_req = document.cookie.split("=")
      let cookies = cookie_req[1]
      useEffect( () =>{
-        getBasketId(cookies).then(data=>basket.setBasketsForCount(data))
+         cookieCheck().then(data=>{
+             cookie_req = document.cookie.split("=")
+             cookies = cookie_req[1]
+             getBasketId(cookies).then(data=>basket.setBasketsForCount(data))
+         })
         },[])
-    // useEffect( () =>{
-    //     getBasketId(cookies).then(data=>setBasketId(data))
-    // },[])
     const click = () => {
         if (value==0){
             onHide()
@@ -27,8 +27,6 @@ import {useCookies} from "react-cookie";
         addBasketDevice({Count:value,basketId:basket.BasketsForCount[0].id,deviceListId:id},).then(data=>onHide())
         }
     }
-    //let NormObj = BasketId.split(',')
-    //console.log(basket.Baskets[0])
 
     return (
         <Modal
