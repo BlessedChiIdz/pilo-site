@@ -13,7 +13,7 @@ const Auth = observer(() => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
-
+    console.log()
 
     const click = async () =>{
         try {

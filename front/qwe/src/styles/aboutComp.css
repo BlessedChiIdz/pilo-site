@@ -1,5 +1,6 @@
 .aboutComp{
-    font-size: 2.6vw;
+    vertical-align: middle;
+    font-size: 1.6vw;
     border: solid;
     border-color: #0c0a0a;
     color: #1a1a1a;
@@ -11,16 +12,16 @@
 .textComp{
     padding-left: 2%;
     display: inline-block;
-    width: 98%;
     width: 60%;
 }
 .imageComp{
+    margin-left: 1%;
     display: inline-block;
     width: 35%;
     vertical-align: top;
 }
 .ourServices{
-    font-size: 1.6em;
+    font-size: 1.6vw;
     border: solid;
     border-color: #0c0a0a;
     color: #1a1a1a;
@@ -72,4 +73,13 @@
     left: 0%;
     top: 15%;
     height: 130px;
+}
+.textService{
+    padding-top: 1%;
+    padding-left: 2%;
+    width: 60%;
+    display: inline-block;
+}
+.hueta{
+    margin-left: 2%;
 }

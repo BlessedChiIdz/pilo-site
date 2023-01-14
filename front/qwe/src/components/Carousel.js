@@ -13,7 +13,7 @@ const Carouselzxc = () => {
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src="/proizvodstvoIzDereva (1).jpg"
+                        src="/Banya-dom.jpg"
                         alt="First slide"
                     />
                     <Carousel.Caption>
@@ -24,7 +24,7 @@ const Carouselzxc = () => {
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src="/proizvodstvoIzDereva (1).jpg"
+                        src="/Banya-dom.jpg"
                         alt="Second slide"
                     />
 
@@ -36,7 +36,7 @@ const Carouselzxc = () => {
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src="/proizvodstvoIzDereva (1).jpg"
+                        src="/Banya-dom.jpg"
                         alt="Third slide"
                     />
 

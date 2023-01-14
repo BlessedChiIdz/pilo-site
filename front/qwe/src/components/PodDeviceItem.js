@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {Button, Col, Row} from "react-bootstrap";
-import {login, registration} from "../http/userAPI";
 import {SHOP_ROUTE} from "../utils/consts";
 import Count from "./Modals/Count";
 const PodDeviceItem = ({device}) => {

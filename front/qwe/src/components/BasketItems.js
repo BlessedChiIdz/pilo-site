@@ -12,11 +12,6 @@ const BasketItems = ({basket}, {dev}) => {
     useEffect(()=>{
         setPrice(basket[0].Count*basket[0].price)
     },)
-    // if(dev[0]===undefined){
-    //     dev[0] = {
-    //         name: "John",
-    //     };
-    // }
 
     const click = () =>{
         Delete(basket[0].idForDelete).then(data=>user.setItem(user.Item+1))
