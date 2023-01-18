@@ -5,9 +5,12 @@ import DeviceList from "../components/DeviceList";
 import {observer} from "mobx-react-lite";
 import {Context} from "../index";
 import {fetchDevices, fetchTypes} from "../http/DeviceAPI";
+import CookieAlert from "../components/Modals/CookieAlert";
 
 const Shop = observer(() => {
     const {device} = useContext(Context)
+    const {user} = useContext(Context)
+    console.log(user.cookieAlert)
     useEffect(()=>{
     fetchTypes().then(data=>device.setTypes(data))
     },[])
@@ -27,6 +30,7 @@ useEffect(()=>{
                     <DeviceList></DeviceList>
                 </div>
             </Row>
+            <CookieAlert show={user.cookieAlert} onHide={()=>user.setCookieAlert(false)}/>
         </Container>
     );
 });

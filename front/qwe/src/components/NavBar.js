@@ -26,22 +26,7 @@ const NavBar = observer(() => {
     return (
         <Navbar bg="dark" variant="dark fixed-top">
                 <NavLink to={SHOP_ROUTE} style={{color: 'white',marginLeft:'20px'}}>СИБСТРОЙКОМПЛЕКС</NavLink>
-                {user.isAuth ?
-                    <Nav className="ml-auto ms-auto" style={{color: "white"}}>
-                        <Button variant={"outline-light"} onClick={()=>navigate(ADMIN_ROUTE)}>Админ панель</Button>
-                        <Button variant={"outline-light"}
-                        className="ms-4"
-                        onClick={()=>logOut()}
-                        >
-                            Выйти
-                        </Button>
-                    </Nav>
-                    :
-                    <Nav className="ml-auto ms-auto" style={{color: "white"}}>
-                        <Button variant={"outline-light"} onClick={()=>navigate(LOGIN_ROUTE)} className="">Авторизация</Button>
-                    </Nav>
-                }
-                <NavLink to={BASKET_ROUTE} style={{color: 'white'}} className="ms-2"><img className="" src="https://i.yapx.ru/U3aLX.jpg"></img></NavLink>
+                <NavLink to={BASKET_ROUTE} style={{color: 'white'}} className="ms-auto"><img className="" src="https://i.yapx.ru/U3aLX.jpg"></img></NavLink>
                 <BasketNOItems show={visible} onHide={()=>setVisible(false)}/>
         </Navbar>
     );
