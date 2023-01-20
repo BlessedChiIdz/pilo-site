@@ -17,7 +17,7 @@ const BasketDevice = sequelize.define('basket_device',{
     Count:{type: DataTypes.INTEGER,allowNull:false}
 })
 
-const Device = sequelize.define('device',{
+const Device = sequelize.define('devices',{
     id: {type: DataTypes.INTEGER, primaryKey:true, autoIncrement:true},
     name: {type: DataTypes.STRING, unique:true, allowNull:false},
     price: {type: DataTypes.INTEGER,allowNull: false},

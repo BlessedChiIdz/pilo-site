@@ -76,3 +76,16 @@ export const cookieCheck = async () =>{
     const {data} = await $host.post('api/cookie')
     return data
 }
+export const deleteType = async (id) =>{
+    const {data} = await $authHost.get('api/delete/type',{params:{
+            id
+        }})
+}
+export const deleteDeivce = async (id) =>{
+    const {data} = await $authHost.get('api/delete/device',{params:{
+            id
+        }})
+}
+export const deletePodDevice = async () =>{
+    const {data} = await $authHost.get('api/delete/podDev')
+}

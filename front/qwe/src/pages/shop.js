@@ -30,7 +30,7 @@ useEffect(()=>{
                     <DeviceList></DeviceList>
                 </div>
             </Row>
-            <CookieAlert show={user.cookieAlert} onHide={()=>user.setCookieAlert(false)}/>
+            {/*<CookieAlert show={user.cookieAlert} onHide={()=>user.setCookieAlert(false)}/>*/}
         </Container>
     );
 });
