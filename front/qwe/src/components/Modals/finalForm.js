@@ -36,7 +36,7 @@ const FinalForm = ({price,show,onHide,flag}) => {
         >
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    Введите телефон
+                    Введите телефон и коментарий к заказу если нужно
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>

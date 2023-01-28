@@ -5,7 +5,8 @@ const $host = axios.create({
     withCredentials: true
 })
 const $authHost = axios.create({
-    baseURL: process.env.REACT_APP_API_URL
+    baseURL: process.env.REACT_APP_API_URL,
+    withCredentials: true
 })
 const authInterceptor = config =>{
     config.headers.authorization = `Bearer ${localStorage.getItem('token')}`
