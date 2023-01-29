@@ -4,7 +4,7 @@ import {Button, Form, Modal} from "react-bootstrap";
 import {Context} from "../../index";
 import {toJS} from "mobx";
 
-const FinalForm = ({price,show,onHide,flag}) => {
+const FinalForm = ({price,show,onHide,flag,showFinal}) => {
     const {basket} = useContext(Context)
     const [value, setValue] = useState('')
     let text = ''
@@ -25,6 +25,7 @@ const FinalForm = ({price,show,onHide,flag}) => {
             setValue('')
             text=''
             onHide()
+            showFinal()
         })
     }
     return (

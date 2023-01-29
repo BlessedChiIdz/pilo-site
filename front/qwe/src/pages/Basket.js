@@ -8,12 +8,13 @@ import FinalForm from "../components/Modals/finalForm";
 import CreateType from "../components/Modals/CreateType";
 import {useNavigate} from "react-router-dom";
 import {SHOP_ROUTE} from "../utils/consts";
+import FinalAlert from "../components/Modals/FinalAlert";
 const Basket = observer(() => {
     let qwe = document.cookie;
     let zxc = qwe.slice("=")
-    console.log(zxc[1])
     const {basket} = useContext(Context)
     const {user} = useContext(Context)
+    let [showFinal, setShowFinal] = useState(false)
     let [dev,setDev] = useState(0)
     let [price,setPrice] = useState(0)
     let [flagTxt,setFlagTxt] = useState(0)
@@ -24,6 +25,7 @@ const Basket = observer(() => {
     let oplataTxt1 = "Наличные "
     let oplataTxt2 = "Безналичный "
     let flag=0
+    console.log(showFinal)
     const navigate = useNavigate()
     const twpProc = () => {
         if(flag===0){
@@ -85,7 +87,8 @@ const Basket = observer(() => {
                     </div>
             }
                 <Button onClick={()=>setVisible(true)}>Оформить</Button>
-                <FinalForm price={price} flag={flagTxt} show={visible} onHide={()=>setVisible(false)}/>
+                <FinalForm  price={price} flag={flagTxt} show={visible} onHide={()=>setVisible(false)} showFinal={()=>setShowFinal(true)}/>
+                <FinalAlert showFinal={showFinal} onHideFinal={()=>setShowFinal(false)}/>
             </Container>
         </Container>
 
