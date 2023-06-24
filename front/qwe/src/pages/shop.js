@@ -6,7 +6,7 @@ import {observer} from "mobx-react-lite";
 import {Context} from "../index";
 import {fetchDevices, fetchTypes} from "../http/DeviceAPI";
 import CookieAlert from "../components/Modals/CookieAlert";
-
+import "../styles/Shop.css"
 const Shop = observer(() => {
     const {device} = useContext(Context)
     const {user} = useContext(Context)
@@ -20,18 +20,20 @@ useEffect(()=>{
     })
 },[device.selectedType])
     return (
-        <Container>
-            <div style={{marginTop:"70px"}}></div>
-            <Row className="col-auto d-flex">
-                <Col md={3} className="mt-3 buttons">
-                    <TypeBar/>
-                </Col>
-                <div md={9} className="col">
-                    <DeviceList></DeviceList>
-                </div>
-            </Row>
-            {/*<CookieAlert show={user.cookieAlert} onHide={()=>user.setCookieAlert(false)}/>*/}
-        </Container>
+        <div className="main">
+            <Container className="second">
+                <div style={{paddingTop:"70px"}}></div>
+                <Row className="col-auto d-flex">
+                    <Col md={3} className="mt-3 buttons">
+                        <TypeBar/>
+                    </Col>
+                    <div md={9} className="col">
+                        <DeviceList></DeviceList>
+                    </div>
+                </Row>
+                {/*<CookieAlert show={user.cookieAlert} onHide={()=>user.setCookieAlert(false)}/>*/}
+            </Container>
+        </div>
     );
 });
 
