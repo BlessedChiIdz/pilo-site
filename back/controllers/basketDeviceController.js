@@ -34,34 +34,36 @@ class basketDeviceController{
                     where: {id_forCookie},
                 },
             )
-            const basket_device = await BasketDevice.findAll({
-                where:{basketId:basketzxc[0].id}
-            })
-            // console.log(basket_device[3])
-           let finalDevice = await Promise.all(basket_device.map(async(device) => {
-                  let anime = await deviceList.findAll({
-                       where: {id: device.deviceListId}
-                   },)
-               // anime[0].dataValues.Count=basket_device.Count
-               return(anime)
-               })
-           )
-            let i =0
-            while(basket_device[i]!=undefined){
-                finalDevice[i][0].dataValues.Count = basket_device[i].Count
-                finalDevice[i][0].dataValues.idForDelete = basket_device[i].id
-                finalDevice[i][0].dataValues.finalPrice = basket_device[i].Count * finalDevice[i][0].price
-                i++
+            if(basketzxc !=0) {
+                console.log(basketzxc)
+                const basket_device = await BasketDevice.findAll({
+                    where: {basketId: basketzxc[0].id}
+                })
+                // console.log(basket_device[3])
+                let finalDevice = await Promise.all(basket_device.map(async (device) => {
+                        let anime = await deviceList.findAll({
+                            where: {id: device.deviceListId}
+                        },)
+                        return (anime)
+                    })
+                )
+                let i = 0
+                while (basket_device[i] != undefined) {
+                    finalDevice[i][0].dataValues.Count = basket_device[i].Count
+                    finalDevice[i][0].dataValues.idForDelete = basket_device[i].id
+                    finalDevice[i][0].dataValues.finalPrice = basket_device[i].Count * finalDevice[i][0].price
+                    i++
+                }
+
+                // finalDevice[0][0].dataValues.Count=1
+                //   console.log(finalDevice[1][0].dataValues)
+
+                // let finalDevice = await deviceList.findAll({
+                //     where:{id:6}
+                // })
+                //  basket_device.map(device=>console.log(device.deviceListId))
+                return res.json(finalDevice)
             }
-
-            // finalDevice[0][0].dataValues.Count=1
-            //   console.log(finalDevice[1][0].dataValues)
-
-            // let finalDevice = await deviceList.findAll({
-            //     where:{id:6}
-            // })
-            //  basket_device.map(device=>console.log(device.deviceListId))
-            return res.json(finalDevice)
         }
         async plusCount(req,res){
         const id = req.query

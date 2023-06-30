@@ -41,11 +41,10 @@ console.log(toJS(device.DeviceList))
                             Учтите что  обработка заказа может достигать 1 суток, за вопросами вы можете обращаться к консультантам<br></br>
                                     <em>
                                         <a href="tel: +79137190734">
-                                            +79137190734
+                                            +79231510440
                                         </a>
                                     </em>
                                 </strong>
-
                             </p>
                         </Container>
 
@@ -55,7 +54,6 @@ console.log(toJS(device.DeviceList))
                             <Image className="" width={250} height={250} src={process.env.REACT_APP_API_URL + deviceInfo.img}/>
                         </Container>
                     </Col>
-                    <Col> Цена указана при наличном расчете, при безналичном+2%</Col>
                 </Row>
             </Container>
         </Container>
