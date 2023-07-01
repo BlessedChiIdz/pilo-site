@@ -6,7 +6,7 @@ class BasketController{
         let {id_forCookie} = req.query;
         const basket = await Basket.findAll(
             {
-                where: {id_forCookie},
+                where: {id_forCookie} ,
             },
         )
         return res.json(basket)

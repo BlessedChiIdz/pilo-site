@@ -3,7 +3,7 @@ const {Basket} = require("../models/models");
 class CookieController{
     async cookieCheck(req,res){
         let basket
-        let id_forCookie = req.cookies.cookieName
+        let id_forCookie = req.cookies.CookForBasket
         console.log(id_forCookie)
         if(id_forCookie === undefined){
             let m = {};
@@ -17,7 +17,7 @@ class CookieController{
                 m[r] = (l in m) ? m[l] : l;
                 console.log(req.cookies.cookieName)
             }
-            res.cookie('cookieName', a[0], {maxAge: 1000 * 60 * 60 * 24 * 360, httpOnly: false});
+            res.cookie('CookForBasket', a[0], {maxAge: 1000 * 60 * 60 * 24 * 360, httpOnly: false});
             basket = await Basket.findAll({
                 where:{id_forCookie:a[0]}
             })
@@ -28,7 +28,7 @@ class CookieController{
             }
         }
         else{
-            basket = await Basket.findAll(
+            basket = await Basket.findOne(
                 {
                     where: {id_forCookie},
                 },

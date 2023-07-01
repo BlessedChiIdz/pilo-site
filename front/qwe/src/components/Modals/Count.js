@@ -7,10 +7,10 @@ import {useCookies} from "react-cookie";
  const Count = observer(({show, onHide, id}) => {
      const {basket} = useContext(Context)
      const {device} = useContext(Context)
-     const [cookie,setCookie] = useCookies()
      const [value, setValue] = useState(1)
-     let cookie_req = document.cookie.split("=")
+     let cookie_req = document.cookie;
      let cookies = cookie_req[1]
+     console.log("cookie = " + cookie_req)
      useEffect( () =>{
          cookieCheck().then(data=>{
              cookie_req = document.cookie.split("=")

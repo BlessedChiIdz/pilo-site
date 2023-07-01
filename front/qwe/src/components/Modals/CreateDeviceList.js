@@ -9,10 +9,6 @@ const createDeviceList = observer(({show, onHide}) => {
     const {device} = useContext(Context)
     const [name, setName] = useState('')
     const [price, setPrice] = useState(0)
-    //const {id} = useParams()
-    // useEffect(()=>{
-    //     fetchOneDevices(id).then(data=>device.setSelectedDevice(data))        Для DeviceList
-    // })
     useEffect(()=>{
         fetchTypes().then(data=>device.setTypes(data))
     },[])
