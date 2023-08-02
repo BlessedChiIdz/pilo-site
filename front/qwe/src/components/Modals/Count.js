@@ -3,19 +3,21 @@ import {Button, Dropdown, Form, Modal} from "react-bootstrap";
 import {addBasketDevice, cookieCheck, fetchTypes, getBasketId} from "../../http/DeviceAPI";
 import {Context} from "../../index";
 import {observer} from "mobx-react-lite";
+import Cookies from 'js-cookie'
 import {useCookies} from "react-cookie";
  const Count = observer(({show, onHide, id}) => {
      const {basket} = useContext(Context)
      const {device} = useContext(Context)
      const [value, setValue] = useState(1)
      let cookie_req = document.cookie;
-     let cookies = cookie_req[1]
-     console.log("cookie = " + cookie_req)
+     let test = Cookies.get('CookForBasket')
+     let cookies = cookie_req.split(";")
+
+     console.log("cookie = " + test)
      useEffect( () =>{
          cookieCheck().then(data=>{
-             cookie_req = document.cookie.split("=")
-             cookies = cookie_req[1]
-             getBasketId(cookies).then(data=>basket.setBasketsForCount(data))
+             test = Cookies.get('CookForBasket')
+             getBasketId(test).then(data=>basket.setBasketsForCount(data))
          })
         },[])
     const click = () => {

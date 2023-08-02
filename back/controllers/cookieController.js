@@ -26,7 +26,7 @@ class CookieController{
                 basket = await Basket.create({id_forCookie: a[0]})
                 console.log("create new basket")
             }
-        }
+         }
         else{
             basket = await Basket.findOne(
                 {

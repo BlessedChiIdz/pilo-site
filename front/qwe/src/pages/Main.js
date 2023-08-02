@@ -2,6 +2,7 @@ import React from 'react';
 import {useNavigate} from "react-router-dom";
 import "../styles/aboutComp.css"
 import Carouselzxc from "../components/Carousel";
+import CookieAlert from "../components/Modals/CookieAlert";
 const Main = () => {
     const  navigate = useNavigate()
     const click=()=>{

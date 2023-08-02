@@ -9,6 +9,7 @@ import CreateType from "../components/Modals/CreateType";
 import {useNavigate} from "react-router-dom";
 import {SHOP_ROUTE} from "../utils/consts";
 import FinalAlert from "../components/Modals/FinalAlert";
+import Cookies from 'js-cookie'
 const Basket = observer(() => {
     let qwe = document.cookie;
     let zxc = qwe.slice("=")
@@ -21,6 +22,7 @@ const Basket = observer(() => {
     let [visible,setVisible] = useState(false)
     let cookie_req = document.cookie.split("=")
     let cookies = cookie_req[1]
+    let test = Cookies.get('CookForBasket')
     let summ=0
     let oplataTxt1 = "Наличные "
     let oplataTxt2 = "Безналичный "
@@ -42,7 +44,7 @@ const Basket = observer(() => {
     }
     if(zxc[1]!==undefined){
     useEffect( () =>{
-        getBasketDevices(cookies).then(data=>basket.setBasketsForBasket(data))
+        getBasketDevices(test).then(data=>basket.setBasketsForBasket(data))
     },[user.Item])
    basket.BasketsForBasket.map(basket=>{
         summ+=basket[0].finalPrice
