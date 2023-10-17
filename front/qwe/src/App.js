@@ -7,8 +7,6 @@ import {Context} from "./index";
 import {check} from "./http/userAPI";
 import {Spinner} from "react-bootstrap";
 import "./buttons.css"
-import {checkCookie, MainApi} from "./http/DeviceAPI";
-import {CookieConsent} from "react-cookie-consent";
 const App = observer(() =>{
     let qwe = document.cookie;
     let zxc = qwe.slice("=")
@@ -27,7 +25,6 @@ const App = observer(() =>{
   return(
       <BrowserRouter>
           <NavBar></NavBar>
-          <CookieConsent>Мы используем куки</CookieConsent>
           <AppRouter />
       </BrowserRouter>
 

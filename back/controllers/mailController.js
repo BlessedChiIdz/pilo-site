@@ -7,7 +7,7 @@ class MailController{
         const {text} = req.body
         const message = {
             from: 'rik232004@mail.ru',
-            to: "nodemailer228@mail.ru",
+            to: "rik2320041@mail.ru",
             subject: 'Order',
             text:text
         }

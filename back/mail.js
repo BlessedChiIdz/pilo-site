@@ -2,11 +2,11 @@ const nodemailer = require('nodemailer')
 
 const transporter = nodemailer.createTransport({
     host: 'smtp.mail.ru',
-    port: 465,
-    secure: true,
+    port: 587,
+    secure: false,
     auth: {
         user: 'rik232004@mail.ru',
-        pass: 'wA99Pn9RxCUNWDwYVEPa'
+        pass: 'R75wPkd3uzeXb3Jf73pL'
     }
 });
 

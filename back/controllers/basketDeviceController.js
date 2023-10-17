@@ -48,6 +48,7 @@ class basketDeviceController{
                     })
                 )
                 let i = 0
+                console.log(basket_device[i])
                 while (basket_device[i] != undefined) {
                     finalDevice[i][0].dataValues.Count = basket_device[i].Count
                     finalDevice[i][0].dataValues.idForDelete = basket_device[i].id
