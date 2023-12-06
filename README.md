@@ -9,6 +9,7 @@ cd back, npm install, npm run dev.
 При деплое нужно будет поменять DB_HOST на ip вашего сервера.
 
 Stack(front):
+Отправка почты - nodemailer.
 Запросы на сервер - axios.
 шаблоны - bootstrap.
 Навигация по сайту - React router dom.
