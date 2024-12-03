@@ -5,7 +5,7 @@
 Запуск приложения:
 cd front/qwe, npm install, npm start.
 cd back, npm install, npm run dev.
-Также нужно скачать pgAdmin(windows) или postgreSQL(linux), создать нового пользователя, создать базу данных, и занести данные о пользователе, его пароле, названии БД в файл .end в папке back. SECRET_KEY, DB_PORT,PORT можно оставить без изменений.
+Также нужно скачать pgAdmin(windows) или postgreSQL(linux), создать нового пользователя, создать базу данных, и занести данные о пользователе, его пароле, названии БД в файл .env в папке back. SECRET_KEY, DB_PORT,PORT можно оставить без изменений.
 При деплое нужно будет поменять DB_HOST на ip вашего сервера.
 
 Stack(front):
