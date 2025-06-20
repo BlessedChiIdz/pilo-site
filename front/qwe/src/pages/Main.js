@@ -7,7 +7,6 @@ const Main = () => {
     const  navigate = useNavigate()
     const click=()=>{
         navigate('/shop')
-
     }
     return (
         <div>
