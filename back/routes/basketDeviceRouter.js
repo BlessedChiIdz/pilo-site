@@ -8,5 +8,7 @@ router.get('/delete',basketDeviceController.delete)
 router.get('/expGet',basketDeviceController.ExpGet)
 router.get('/plus',basketDeviceController.plusCount)
 router.get('/minus',basketDeviceController.minusCount)
+router.get('/deleteAllUsersDevices', basketDeviceController.deleteAllUserDevices)
+router.post('/addItemsToOrders', basketDeviceController.addItemsToOrders)
 module.exports = router
 

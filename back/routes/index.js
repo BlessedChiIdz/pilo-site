@@ -9,6 +9,8 @@ const deviceList = require('./deviceListRouter')
 const basketDevice = require('./basketDeviceRouter')
 const mail = require("./mailRouter");
 const DeleteRouter = require("./DeleteRouter");
+const cassaRouter = require('./CassaRouter')
+
 router.use('/cookie',cookieRouter)
 router.use('/user', userRouter)
 router.use('/type', typeRouter)
@@ -18,5 +20,6 @@ router.use('/deviceList', deviceList)
 router.use('/basketDevice',basketDevice)
 router.use('/mail',mail)
 router.use('/delete',DeleteRouter)
+router.use('/cassa', cassaRouter)
 
 module.exports = router

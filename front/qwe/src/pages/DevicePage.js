@@ -20,7 +20,7 @@ const DevicePage = () => {
             <div style={{marginTop:"60px"}}></div>
             <Row className="border-bottom border-2 border-dark pb-3" >
                 <Col sm={6}>
-                    НАИМЕНОВАНИЕ
+                    Размер
                 </Col>
                 <Col sm={3}>
                     цена за шт

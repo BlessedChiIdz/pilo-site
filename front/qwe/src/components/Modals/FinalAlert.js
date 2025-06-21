@@ -10,9 +10,9 @@ const FinalAlert = ({showFinal,onHideFinal}) => {
                 size="lg"
                 centered
             >
-                <Modal.Header closeButton>
+                <Modal.Header closeButton onClick={onHideFinal}>
                     <Modal.Title id="contained-modal-title-vcenter">
-                        Мы получили ваш заказ, наши консультанты скоро свяжутся с вами
+                        Мы получили ваш заказ!
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>

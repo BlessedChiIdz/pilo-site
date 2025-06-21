@@ -89,3 +89,14 @@ export const deleteDeivce = async (id) =>{
 export const deletePodDevice = async () =>{
     const {data} = await $authHost.get('api/delete/podDev')
 }
+export const deleteUserDevices = async (id_forCookie) => {
+    const {data} = await $host.get('api/basketDevice/deleteAllUsersDevices',{params:{
+            id_forCookie
+    }})
+    return data
+}
+
+export const addItemsToOrders = async (props) => {
+    const {data} = await $host.post('api/basketDevice/addItemsToOrders', props)
+    return data
+}

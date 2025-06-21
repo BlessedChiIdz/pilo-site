@@ -20,7 +20,7 @@ const BasketItems = ({basket}, {dev}) => {
     return (
         <Col sm={12} className="">
             <Container className="align-items: center">
-                <Row className="mt-3 border-bottom border-2 border-dark position-relative basketItem">
+                <Row className="mt-3 border-bottom border-2 border-dark position-relative basketItem" style={{alignItems: "center"}}>
                     <Col sm={3}>
                         <div>
                             {basket[0].clothName + ' ' + basket[0].name}

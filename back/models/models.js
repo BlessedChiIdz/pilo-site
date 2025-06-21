@@ -37,6 +37,14 @@ const DeviceInfo = sequelize.define('device_info', {
     title: {type: DataTypes.STRING, allowNull: false},
     description: {type: DataTypes.STRING, allowNull: false},
 })
+
+const Orders = sequelize.define('orders', {
+    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    name: {type: DataTypes.STRING, allowNull: true},
+    tel: {type: DataTypes.STRING, allowNull: true},
+    items: {type: DataTypes.STRING, allowNull: true}
+})
+
 Basket.hasMany(BasketDevice)
 BasketDevice.belongsTo(Basket)
 
@@ -53,5 +61,5 @@ Device.hasMany(DeviceInfo, {as: 'info'});
 DeviceInfo.belongsTo(Device)
 
 module.exports = {
-    User,Basket,BasketDevice,Device,Type,deviceList,DeviceInfo
+    User,Basket,BasketDevice,Device,Type,deviceList,DeviceInfo, Orders
 }

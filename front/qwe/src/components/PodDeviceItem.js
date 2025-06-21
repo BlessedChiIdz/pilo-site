@@ -15,7 +15,7 @@ const PodDeviceItem = ({device}) => {
 
     return (
             <Col sm={12}>
-                <Row className="mt-3 border-bottom border-2 border-dark position-relative">
+                <Row className="mt-3 border-bottom border-2 border-dark position-relative" style={{alignItems: "center"}}>
                 <Col sm={6}>
                     <div>
                         {device.name}

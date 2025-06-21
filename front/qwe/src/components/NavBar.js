@@ -26,7 +26,7 @@ const NavBar = observer(() => {
                     >
                         BLACKSERIES
                     </a>
-                    <nav className="hidden md:flex space-x-6">
+                    <nav className="md:flex space-x-6">
                         <a
                             href="#"
                             className="bg-green-400 text-black px-4 py-1 !rounded-button cursor-pointer whitespace-nowrap"
@@ -36,7 +36,7 @@ const NavBar = observer(() => {
                         </a>
                     </nav>
                 </div>
-                <div className="hidden md:flex items-center space-x-4">
+                <div className="md:flex items-center space-x-4">
                     <div className="relative">
                         <a
                             onClick={() => navigate(BASKET_ROUTE)}

@@ -5,6 +5,7 @@ import CreateDevice from "../components/Modals/CreateDevice";
 import CreateDeviceList from "../components/Modals/CreateDeviceList";
 import DeleteType from "../components/Modals/DeleteType";
 import DeleteDevice from "../components/Modals/DeleteDevice";
+import OrderList from "../components/Modals/OrderList";
 const Admin = () => {
     const [typeVisible,setTypeVisible] = useState(false)
     const [deviceVisible, setDeviceVisible] = useState(false)
@@ -12,6 +13,7 @@ const Admin = () => {
     const [deleteTypeVisible,setDeleteTypeVisible] = useState(false)
     const [deleteDeviceVisible, setDeleteDeviceVisible] = useState(false)
     const [deleteDeviceListVisible, setDeleteDeviceListVisible] = useState(false)
+    const [orderListVisible, setOrderListVisible] = useState(false)
     return (
         <Container className="d-flex flex-column">
             <div style={{marginTop:"60px"}}></div>
@@ -26,6 +28,7 @@ const Admin = () => {
             <CreateDeviceList show={deviceListVisible} onHide={()=>setDeviceListVisible(false)}/>
             <DeleteType show={deleteTypeVisible} onHide={()=>setDeleteTypeVisible(false)}/>
             <DeleteDevice show={deleteDeviceVisible} onHide={()=>setDeleteDeviceVisible(false)}/>
+            <OrderList show={orderListVisible} onHide={()=>setOrderListVisible(false)}></OrderList>
         </Container>
     );
 };
