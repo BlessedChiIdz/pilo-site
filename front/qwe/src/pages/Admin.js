@@ -23,6 +23,7 @@ const Admin = () => {
             <Button onClick={()=>setDeleteTypeVisible(true)} variant={"outline-dark"} className="mt-2">Удалить тип</Button>
             <Button onClick={()=>setDeleteDeviceVisible(true)} variant={"outline-dark"} className="mt-2">Удалить одежду</Button>
             <Button onClick={()=>setDeleteDeviceListVisible(true)} variant={"outline-dark"} className="mt-2">Удалить тип одежды</Button>
+            <Button onClick={()=>setOrderListVisible(true)} variant={"outline-dark"} className="mt-2">Список заказов</Button>
             <CreateType show={typeVisible} onHide={()=>setTypeVisible(false)}/>
             <CreateDevice show={deviceVisible} onHide={()=>setDeviceVisible(false)}/>
             <CreateDeviceList show={deviceListVisible} onHide={()=>setDeviceListVisible(false)}/>

@@ -100,3 +100,15 @@ export const addItemsToOrders = async (props) => {
     const {data} = await $host.post('api/basketDevice/addItemsToOrders', props)
     return data
 }
+
+export const getOrdersList = async() => {
+    const {data} = await $host.get('api/basketDevice/getOrdersList')
+    return data
+}
+
+export const deleteOneOrder = async(id) => {
+    const {data} = await $host.get('api/basketDevice/deleteOneOrder', {params:{
+        id
+        }})
+    return data
+}

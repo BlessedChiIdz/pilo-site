@@ -1,6 +1,7 @@
 const{BasketDevice, Basket, Device, deviceList, Orders} = require('../models/models')
 const ApiError = require("../error/ApiError");
 const {json} = require("express");
+const {where} = require("sequelize");
 
 class basketDeviceController{
         async add(req,res){
@@ -158,7 +159,17 @@ class basketDeviceController{
         }
     }
 
-
+    async getOrdersList(req,res){
+        const order = await Orders.findAll()
+        return res.json(order)
+    }
+    async deleteOneOrder(req, res){
+        const {id} = req.query
+        const order = await Orders.destroy({
+                where: {id: id}
+        })
+        return res.json(order)
+    }
 }
 
 module.exports = new basketDeviceController()

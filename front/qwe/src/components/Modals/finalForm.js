@@ -12,8 +12,8 @@ const FinalForm = ({price,show,onHide,flag,showFinal}) => {
     let text = ''
     const addType = async () => {
         let cookie = Cookies.get('CookForBasket')
-        await deleteUserDevices(cookie)
         await addItemsToOrders({id_forCookie: cookie, name: valueName, tel: valueTel})
+        await deleteUserDevices(cookie)
         setValueName(' ') //обновить state
         text = text + ' ' + valueName + ' ' + valueTel + '\n'
         basket.BasketsForBasket.map(basket => {

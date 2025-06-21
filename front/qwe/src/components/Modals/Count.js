@@ -38,21 +38,10 @@ import {useCookies} from "react-cookie";
         >
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    Количество
+                    Подтверждение
                 </Modal.Title>
             </Modal.Header>
-            <Modal.Body>
-                <Form>
-                    <Form.Control
-                        value={value}
-                        onChange={e=>setValue(Number(e.target.value))}
-                        className="mt-3"
-                        placeholder="Введите количество товара"
-                        type="number"
-                    />
-                    <hr/>
-                </Form>
-            </Modal.Body>
+
             <Modal.Footer>
                 <Button variant="outline-danger" onClick={onHide}>Закрыть</Button>
                 <Button variant="outline-success" onClick={click}>Купить</Button>
