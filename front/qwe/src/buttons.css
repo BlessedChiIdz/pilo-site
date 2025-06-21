@@ -220,11 +220,6 @@
   width:100%;
   transition:800ms ease all;
 }
-
-
-
-
-
 .oplata{
   text-align: center;
   margin-top: 40px;
@@ -237,3 +232,8 @@
   margin: 0;
   text-align: center;
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+

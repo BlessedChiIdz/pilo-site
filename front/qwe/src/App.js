@@ -7,6 +7,7 @@ import {Context} from "./index";
 import {check} from "./http/userAPI";
 import {Spinner} from "react-bootstrap";
 import "./buttons.css"
+
 const App = observer(() =>{
     let qwe = document.cookie;
     let zxc = qwe.slice("=")

@@ -10,7 +10,6 @@ import {observer} from "mobx-react-lite";
 
 const BasketItemsList = observer(({dev}) => {
     const {basket} = useContext(Context)
-    console.log(toJS(basket.BasketsForBasket))
     return (
         <Row>
             {basket.BasketsForBasket.map(basket=>

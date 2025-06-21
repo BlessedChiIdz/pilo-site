@@ -35,11 +35,9 @@ class basketDeviceController{
                 },
             )
             if(basketzxc !=0) {
-                console.log(basketzxc)
                 const basket_device = await BasketDevice.findAll({
                     where: {basketId: basketzxc[0].id}
                 })
-                // console.log(basket_device[3])
                 let finalDevice = await Promise.all(basket_device.map(async (device) => {
                         let anime = await deviceList.findAll({
                             where: {id: device.deviceListId}
@@ -47,22 +45,31 @@ class basketDeviceController{
                         return (anime)
                     })
                 )
+                console.log(finalDevice.length)
+
                 let i = 0
-                console.log(basket_device[i])
                 while (basket_device[i] != undefined) {
                     finalDevice[i][0].dataValues.Count = basket_device[i].Count
                     finalDevice[i][0].dataValues.idForDelete = basket_device[i].id
                     finalDevice[i][0].dataValues.finalPrice = basket_device[i].Count * finalDevice[i][0].price
                     i++
                 }
-
+                //console.log(finalDevice[0][0].dataValues)
                 // finalDevice[0][0].dataValues.Count=1
-                //   console.log(finalDevice[1][0].dataValues)
 
                 // let finalDevice = await deviceList.findAll({
                 //     where:{id:6}
                 // })
                 //  basket_device.map(device=>console.log(device.deviceListId))
+                let clothNameItem = {}
+                if(finalDevice.length !== 0){
+                 clothNameItem = await Device.findOne(
+                    {
+                        where: {id:finalDevice[0][0].dataValues.deviceId},
+                    },
+                )
+                finalDevice[0][0].dataValues.clothName = clothNameItem.dataValues.name
+                }
                 return res.json(finalDevice)
             }
         }

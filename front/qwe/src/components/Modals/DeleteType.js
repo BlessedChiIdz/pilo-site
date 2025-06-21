@@ -13,7 +13,6 @@ const DeleteType = observer(({show,onHide}) => {
     const deleteTypeClick =() =>{
         deleteType(device.selectedType.id).then(onHide)
     }
-    console.log(toJS(device.selectedType.id))
     return (
         <Modal
             show={show}

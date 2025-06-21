@@ -27,7 +27,6 @@ const Basket = observer(() => {
     let oplataTxt1 = "Наличные "
     let oplataTxt2 = "Безналичный "
     let flag=0
-    console.log(showFinal)
     const navigate = useNavigate()
     const twpProc = () => {
         if(flag===0){
@@ -50,10 +49,8 @@ const Basket = observer(() => {
         summ+=basket[0].finalPrice
     })
     useEffect( () =>{
-        console.log(summ)
         setPrice(summ)
     },[basket.BasketsForBasket])
-    console.log(flag)
     }
     return (
         <Container>

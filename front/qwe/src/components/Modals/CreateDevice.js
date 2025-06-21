@@ -34,14 +34,14 @@ const CreateDevice = observer(({show, onHide}) => {
         >
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    Добавить устройство
+                    Добавить одежду
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form>
                     <Dropdown>
                         <Dropdown.Toggle>
-                            {device.selectedType.name || "выберете тип"}
+                            {device.selectedType.name || "выберете одежду"}
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
                             {device.types.map(type=>
@@ -55,13 +55,13 @@ const CreateDevice = observer(({show, onHide}) => {
                         value={name}
                         onChange={e=>setName(e.target.value)}
                         className="mt-3"
-                        placeholder="Введите название устройства"
+                        placeholder="Введите название одежды"
                     />
                     <Form.Control
                         value={price}
                         onChange={e=>setPrice(Number(e.target.value))}
                         className="mt-3"
-                        placeholder="Введите стоимость устройства"
+                        placeholder="Введите стоимость одежды"
                         type="number"
                     /><Form.Control
                     className="mt-3"

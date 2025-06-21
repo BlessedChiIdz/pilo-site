@@ -15,7 +15,6 @@ const DevicePage = () => {
         fetchOneDevices(id).then(data=>setDeviceInfo(data))
     },[])
 
-console.log(toJS(device.DeviceList))
         return (
         <Container className="mt-3 ">
             <div style={{marginTop:"60px"}}></div>

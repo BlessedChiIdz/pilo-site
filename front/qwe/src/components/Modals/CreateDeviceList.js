@@ -51,7 +51,7 @@ const createDeviceList = observer(({show, onHide}) => {
                     </Dropdown>
                     <Dropdown>
                         <Dropdown.Toggle>
-                            {device.selectedDevice.name || "выберете девайс"}
+                            {device.selectedDevice.name || "выберете одежду"}
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
                             {device.devices.map(qwe=>
@@ -65,7 +65,7 @@ const createDeviceList = observer(({show, onHide}) => {
                         value={name}
                         onChange={e=>setName(e.target.value)}
                         className="mt-3"
-                        placeholder="Введите название устройства"
+                        placeholder="Введите название подтипа одежды"
                     />
                     <Form.Control
                         value={price}

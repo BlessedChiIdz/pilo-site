@@ -10,7 +10,6 @@ import "../styles/Shop.css"
 const Shop = observer(() => {
     const {device} = useContext(Context)
     const {user} = useContext(Context)
-    console.log(user.cookieAlert)
     useEffect(()=>{
     fetchTypes().then(data=>device.setTypes(data))
     },[])

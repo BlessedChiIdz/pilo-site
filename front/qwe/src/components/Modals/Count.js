@@ -13,7 +13,6 @@ import {useCookies} from "react-cookie";
      let test = Cookies.get('CookForBasket')
      let cookies = cookie_req.split(";")
 
-     console.log("cookie = " + test)
      useEffect( () =>{
          cookieCheck().then(data=>{
              test = Cookies.get('CookForBasket')

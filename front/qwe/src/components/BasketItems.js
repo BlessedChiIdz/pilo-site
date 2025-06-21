@@ -16,13 +16,14 @@ const BasketItems = ({basket}, {dev}) => {
     const click = () =>{
         Delete(basket[0].idForDelete).then(data=>user.setItem(user.Item+1))
     }
+    console.log(JSON.stringify(basket[0], null, 2));
     return (
         <Col sm={12} className="">
             <Container className="align-items: center">
                 <Row className="mt-3 border-bottom border-2 border-dark position-relative basketItem">
                     <Col sm={3}>
                         <div>
-                            {basket[0].name}
+                            {basket[0].clothName + ' ' + basket[0].name}
                         </div>
                     </Col>
                     <Col sm={3}>

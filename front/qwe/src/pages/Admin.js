@@ -16,11 +16,11 @@ const Admin = () => {
         <Container className="d-flex flex-column">
             <div style={{marginTop:"60px"}}></div>
             <Button onClick={()=>setTypeVisible(true)} variant={"outline-dark"} className="mt-2">Добавить тип</Button>
-            <Button onClick={()=>setDeviceVisible(true)} variant={"outline-dark"} className="mt-2">Добавить устройство</Button>
-            <Button onClick={()=>setDeviceListVisible(true)} variant={"outline-dark"} className="mt-2">Добавить подустройство</Button>
+            <Button onClick={()=>setDeviceVisible(true)} variant={"outline-dark"} className="mt-2">Добавить Одежду</Button>
+            <Button onClick={()=>setDeviceListVisible(true)} variant={"outline-dark"} className="mt-2">Добавить Тип одежды</Button>
             <Button onClick={()=>setDeleteTypeVisible(true)} variant={"outline-dark"} className="mt-2">Удалить тип</Button>
-            <Button onClick={()=>setDeleteDeviceVisible(true)} variant={"outline-dark"} className="mt-2">Удалить устройство</Button>
-            <Button onClick={()=>setDeleteDeviceListVisible(true)} variant={"outline-dark"} className="mt-2">Удалить подустройство</Button>
+            <Button onClick={()=>setDeleteDeviceVisible(true)} variant={"outline-dark"} className="mt-2">Удалить одежду</Button>
+            <Button onClick={()=>setDeleteDeviceListVisible(true)} variant={"outline-dark"} className="mt-2">Удалить тип одежды</Button>
             <CreateType show={typeVisible} onHide={()=>setTypeVisible(false)}/>
             <CreateDevice show={deviceVisible} onHide={()=>setDeviceVisible(false)}/>
             <CreateDeviceList show={deviceListVisible} onHide={()=>setDeviceListVisible(false)}/>

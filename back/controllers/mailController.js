@@ -2,7 +2,6 @@ const mailer = require("../mail")
 const {Basket} = require("../models/models");
 class MailController{
     async send(req,res){
-        console.log(0)
 
         const {text} = req.body
         const message = {
@@ -17,7 +16,6 @@ class MailController{
     async cookieToUser(req,res){
         const {cook} = req.body
         if(cook === undefined || cook === 0 || cook ===""){
-            console.log(req.cookies.cookieName)
             let m = {};
             let a = []; 
             const range = 2000000000; // максимальное значение (1..1000000 включительно)
@@ -37,12 +35,9 @@ class MailController{
 
             }
             else{
-                console.log(basket)
             }
         }
         else{
-            console.log(req.cookies.cookieName)
-            console.log("yes cookie")
         }
         return res.json(0)
     }
