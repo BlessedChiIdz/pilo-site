@@ -7,7 +7,6 @@ class cassaController{
         const SHOP_ID = '1111398';
         const SECRET_KEY = 'test_WsdM9iWGMmWkKgQ8PbRbxdQk2CgO26pBO_fhvQu3ZHU';
         const YOOKASSA_API = 'https://api.yookassa.ru/v3/payments';
-        const idempotenceKey = crypto.randomUUID();
         try {
             const { amount, description } = req.body;
 
@@ -23,7 +22,7 @@ class cassaController{
                     },
                     confirmation: {
                         type: 'redirect',
-                        return_url: 'http://localhost:3000/success', // Куда вернуться после оплаты
+                        return_url: 'http://localhost:3000/success',
                     },
                     description: description || 'Оплата товара',
                 },
@@ -33,7 +32,7 @@ class cassaController{
                         password: SECRET_KEY,
                     },
                     headers: {
-                        'Idempotence-Key': Date.now(), // Уникальный ключ
+                        'Idempotence-Key': Date.now(),
                     },
                 }
             );

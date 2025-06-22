@@ -25,7 +25,7 @@ const Device = sequelize.define('devices',{
 })
 const deviceList = sequelize.define('deviceList',{
     id: {type: DataTypes.INTEGER, primaryKey:true, autoIncrement:true},
-    name: {type: DataTypes.STRING, unique:true, allowNull:false},
+    name: {type: DataTypes.STRING, allowNull:false},
     price: {type: DataTypes.INTEGER,allowNull: false},
 })
 const Type = sequelize.define('type', {

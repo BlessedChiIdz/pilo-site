@@ -14,22 +14,20 @@ const FinalFormOnline = ({price,show,onHide,flag,showFinal}) => {
 
     const addType = async () => {
         setLoading(true);
-        await addItemsToOrders({id_forCookie:cookie,name:valueName,tel:valueTel})
-        await deleteUserDevices(cookie)
+
         try {
-            const response = await axios.post('http://localhost:5000/api/cassa/create-payment', {
+            const response = await axios.post(process.env.REACT_APP_API_URL+'api/cassa/create-payment', {
                 amount: price,
                 description: 'Покупка подписки',
             });
-
             window.location.href = response.data.url;
         } catch (error) {
             alert('Ошибка при создании платежа');
         } finally {
-
+            await addItemsToOrders({id_forCookie:cookie,name:valueName,tel:valueTel})
+            await deleteUserDevices(cookie)
             setLoading(false);
         }
-
     }
     return (
         <Modal

@@ -34,27 +34,14 @@ const DevicePage = () => {
             <Container className="px-4 pt-3">
                 <Row className="gx-5">
                     <Col>
-                        <Container>
-                            <p>
-                                <strong>
-                            Учтите что  обработка заказа может достигать 1 суток, за вопросами вы можете обращаться по телефонам<br></br>
-                                    <em>
-                                        <a href="tel: +79137190734">
-                                            +79231510440
-                                        </a>
-                                        <br></br>
-                                        <a href="tel: +79137190734">
-                                            +79232400940
-                                        </a>
-                                    </em>
-                                </strong>
-                            </p>
+                        <Container style={{fontSize:"4em",fontWeight: "bold"}}>
+                            {deviceInfo.name}
                         </Container>
 
                     </Col>
                     <Col>
                         <Container className="text-center">
-                            <Image className="" width={250} height={250} src={process.env.REACT_APP_API_URL + deviceInfo.img}/>
+                            <Image className="" width={350} height={350} src={process.env.REACT_APP_API_URL + deviceInfo.img}/>
                         </Container>
                     </Col>
                 </Row>

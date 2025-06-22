@@ -2,7 +2,7 @@ const nodemailer = require('nodemailer')
 
 const transporter = nodemailer.createTransport({
     host: 'smtp.mail.ru',
-    port: 587,
+    port: 25,
     secure: false,
     auth: {
         user: 'rik232004@mail.ru',
