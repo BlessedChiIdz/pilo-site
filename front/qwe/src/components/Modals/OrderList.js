@@ -17,28 +17,45 @@ const OrderList = ({show, onHide}) => {
         <Modal
             show={show}
             onHide={onHide}
-            size="lg"
+            size="xl"
             centered
         >
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    Добавить тип
+                    Заказы
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <div style={{alignItems: "center"}}>
-                    <div style={{display: "inline-block"}}>ФИО</div>
-                    <div style={{display: "inline-block", marginLeft: "20%"}}>Телефон</div>
-                    <div style={{display: "inline-block", marginLeft: "20%"}}>заказы</div>
+
+                <div className="table-responsive">
+                    <table className="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>ФИО</th>
+                            <th>Телефон</th>
+                            <th>Заказы</th>
+                            <th>Действие</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {items.map(item => (
+                            <tr key={item.id}>
+                                <td>{item.name}</td>
+                                <td>{item.tel}</td>
+                                <td>{item.items}</td>
+                                <td>
+                                    <Button
+                                        variant="danger"
+                                        onClick={() => deleteOneOrderF(item.id)}
+                                    >
+                                        Заказ получен
+                                    </Button>
+                                </td>
+                            </tr>
+                        ))}
+                        </tbody>
+                    </table>
                 </div>
-                {items.map(item=>(
-                    <div style={{alignItems: "center"}}>
-                        <div style={{display: "inline-block"}}>{item.name}</div>
-                        <div style={{display: "inline-block", marginLeft: "20%"}}>{item.tel}</div>
-                        <div style={{display: "inline-block", marginLeft: "20%"}}>{item.items}</div>
-                        <Button onClick={()=>deleteOneOrderF(item.id)}>Заказ получен</Button>
-                    </div>
-                ))}
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="outline-danger" onClick={onHide}>Закрыть</Button>

@@ -18,7 +18,7 @@ const FinalFormOnline = ({price,show,onHide,flag,showFinal}) => {
         try {
             const response = await axios.post(process.env.REACT_APP_API_URL+'api/cassa/create-payment', {
                 amount: price,
-                description: 'Покупка подписки',
+                description: valueTel + valueName
             });
             window.location.href = response.data.url;
         } catch (error) {
@@ -38,7 +38,7 @@ const FinalFormOnline = ({price,show,onHide,flag,showFinal}) => {
         >
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    Введите телефон и коментарий к заказу если нужно
+                    Введите телефон и ФИО
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>

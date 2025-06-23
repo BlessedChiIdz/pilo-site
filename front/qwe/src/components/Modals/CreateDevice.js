@@ -58,12 +58,6 @@ const CreateDevice = observer(({show, onHide}) => {
                         placeholder="Введите название одежды"
                     />
                     <Form.Control
-                        value={price}
-                        onChange={e=>setPrice(Number(e.target.value))}
-                        className="mt-3"
-                        placeholder="Введите стоимость одежды"
-                        type="number"
-                    /><Form.Control
                     className="mt-3"
                     type="file"
                     onChange={selectFile}

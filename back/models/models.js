@@ -12,6 +12,14 @@ const Basket = sequelize.define('basket',{
     id: {type: DataTypes.BIGINT, primaryKey:true, autoIncrement:true},
     id_forCookie: {type: DataTypes.INTEGER,allowNull: false},
 })
+
+const Orders = sequelize.define('orders', {
+    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    name: {type: DataTypes.STRING, allowNull: true},
+    tel: {type: DataTypes.STRING, allowNull: true},
+    items: {type: DataTypes.STRING, allowNull: true}
+})
+
 const BasketDevice = sequelize.define('basket_device',{
     id: {type: DataTypes.INTEGER, primaryKey:true, autoIncrement:true},
     Count:{type: DataTypes.INTEGER,allowNull:false}
@@ -38,12 +46,7 @@ const DeviceInfo = sequelize.define('device_info', {
     description: {type: DataTypes.STRING, allowNull: false},
 })
 
-const Orders = sequelize.define('orders', {
-    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-    name: {type: DataTypes.STRING, allowNull: true},
-    tel: {type: DataTypes.STRING, allowNull: true},
-    items: {type: DataTypes.STRING, allowNull: true}
-})
+
 
 Basket.hasMany(BasketDevice)
 BasketDevice.belongsTo(Basket)
